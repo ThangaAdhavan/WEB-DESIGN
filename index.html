@@ -204,12 +204,12 @@ nav {
   background:var(--b);
   display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
   opacity:0; pointer-events:none;
-  transition: opacity .4s var(--ease);
+  transition: opacity .5s var(--ease);
 }
 .mob-menu.open { opacity:1; pointer-events:all; }
 .mob-menu a {
   font-family:var(--ff-d); font-size:clamp(48px,10vw,80px); letter-spacing:2px;
-  color:rgba(255,255,255,.15); text-decoration:none;
+  color:rgba(25,255,255,.15); text-decoration:none;
   transition: color .2s, transform .2s;
   cursor:none;
 }
@@ -1715,14 +1715,17 @@ footer {
     <div class="ld-bar-bg"><div class="ld-bar" id="ld-b"></div></div>
   </div>
 </div>
+  <a href="Desert Brass — Minimalism (Sand Dust).html" target="_blank" rel="noopener noreferrer">Desert Brass — Minimalism (Sand Dust)</a>
+
+<a href="Glacial Tech — Minimalism (Glass Spores).html" target="_blank" rel="noopener noreferrer">Glacial Tech — Minimalism (Glass Spores)</a>
+
+<a href="Glacier Concrete — Minimalism (Snow).html" target="_blank" rel="noopener noreferrer">Glacier Concrete — Minimalism (Snow)</a>
 
 <!-- ================================================================
      MOBILE MENU
 ================================================================ -->
 <div class="mob-menu" id="mobMenu">
-  <a href="Glacier Concrete — Minimalism (Snow).html" target="_blank" onclick="CloseMob()">Glacier Concrete</a> 
-  <a href="Glacial Tech — Minimalism (Glass Spores).html" target="_blank" onclick="CloseMob()">>Glacial Tech</a>   
-  <a href="Desert Brass — Minimalism (Sand Dust).html" target="_blank" onclick="CloseMob()">>Desert Brass</a>   
+    
   <a href="#work" onclick="closeMob()">Work</a>
   <a href="#services" onclick="closeMob()">Services</a>
   <a href="#about" onclick="closeMob()">About</a>
