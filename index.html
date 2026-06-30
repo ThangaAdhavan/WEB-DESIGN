@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<a href="Glacier Concrete — Minimalism (Snow).html" target="_blank">Glacier Concrete</a>   
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RAWHAUS — Neo-Brutalist Creative Studio</title>
@@ -37,7 +36,7 @@
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { overflow-x: hidden; scroll-behavior: smooth; font-size: 16px; }
 
-body {
+title {
   background: var(--w);
   color: var(--b);
   font-family: var(--ff-b);
@@ -783,7 +782,7 @@ nav {
   margin-bottom:36px;
 }
 .about-headline em { color:var(--y); font-style:normal; }
-.about-body {
+.about-title {
   font-family:var(--ff-b); font-size:15px; line-height:1.8;
   color:rgba(255,255,255,.45); max-width:400px;
   margin-bottom:36px;
@@ -1690,6 +1689,77 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration:.001ms !important; transition-duration:.001ms !important; }
 }
+  * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Main Container */
+        .LOQ {
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        /* Heading Title */
+        .zW9 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            color: #ffffff;
+        }
+
+        /* Links Wrapper */
+        .hP {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Individual Link Button */
+        .xR7 {
+            display: block;
+            padding: 20px;
+            color: #a0a0a0;
+            text-decoration: none;
+            border: 1px solid #2c2c2c;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+            background-color: #1a1a1a;
+            transition: all 0.3s ease;
+        }
+
+        /* Hover State */
+        .xR7:hover {
+            color: #ffffff;
+            border-color: #ffffff;
+            background-color: #222222;
+            transform: translateY(-2px);
+        }
+
+        /* Footer Info */
+        .kM1 {
+            margin-top: 50px;
+            font-size: 0.75rem;
+            color: #555;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
 </style>
 </head>
 <body>
@@ -1715,12 +1785,27 @@ footer {
     <div class="ld-bar-bg"><div class="ld-bar" id="ld-b"></div></div>
   </div>
 </div>
-  <a href="Desert Brass — Minimalism (Sand Dust).html" target="_blank" rel="noopener noreferrer">Desert Brass — Minimalism (Sand Dust)</a>
+<div class="LOQ">
+        <h1 class="zW9">Minimalism Series</h1>
+        
+        <div class="hP">
+            <a class="xR7" href="Desert Brass — Minimalism (Sand Dust).html" target="_blank" rel="noopener noreferrer">
+                Desert Brass — Minimalism (Sand Dust)
+            </a>
+            
+            <a class="xR7" href="Glacial Tech — Minimalism (Glass Spores).html" target="_blank" rel="noopener noreferrer">
+                Glacial Tech — Minimalism (Glass Spores)
+            </a>
+            
+            <a class="xR7" href="Glacier Concrete — Minimalism (Snow).html" target="_blank" rel="noopener noreferrer">
+                Glacier Concrete — Minimalism (Snow)
+            </a>
+        </div>
 
-<a href="Glacial Tech — Minimalism (Glass Spores).html" target="_blank" rel="noopener noreferrer">Glacial Tech — Minimalism (Glass Spores)</a>
-
-<a href="Glacier Concrete — Minimalism (Snow).html" target="_blank" rel="noopener noreferrer">Glacier Concrete — Minimalism (Snow)</a>
-
+        <footer class="kM1">
+            <p>Opens in a new tab</p>
+        </footer>
+</div>
 <!-- ================================================================
      MOBILE MENU
 ================================================================ -->
@@ -2012,7 +2097,7 @@ footer {
       WE DESIGN<br>
       <em>WITH</em> YOU.
     </h2>
-    <div class="about-body reveal d2">
+    <div class="about-title reveal d2">
       <p>RAWHAUS is a team of designers, developers, and strategists united by one belief: that the web is still the most powerful medium for storytelling. We build digital experiences that challenge conventions and refuse to be ignored.</p>
       <p>Founded in 2016 in San Francisco, we've grown from a two-person studio into a team of eight, working with bold founders, ambitious brands, and organisations that dare to be different.</p>
     </div>
@@ -2349,7 +2434,7 @@ footer {
       <div class="team-card-top">
         <div class="tc-bg tc-1"><div class="tc-initial">Z</div></div>
       </div>
-      <div class="team-card-body">
+      <div class="team-card-title">
         <div class="tc-name">ZOE WALKER</div>
         <div class="tc-role">Founder · Creative Director</div>
         <div class="tc-bio">10 years crafting digital identities. Obsessed with the intersection of raw texture and clean function.</div>
@@ -2364,7 +2449,7 @@ footer {
       <div class="team-card-top">
         <div class="tc-bg tc-2"><div class="tc-initial">M</div></div>
       </div>
-      <div class="team-card-body">
+      <div class="team-card-title">
         <div class="tc-name">MAX CHEN</div>
         <div class="tc-role">Lead Developer · Architect</div>
         <div class="tc-bio">Turns wild design ideas into immersive web realities. Full-stack with a bias for animation and WebGL.</div>
@@ -2379,7 +2464,7 @@ footer {
       <div class="team-card-top">
         <div class="tc-bg tc-3"><div class="tc-initial">S</div></div>
       </div>
-      <div class="team-card-body">
+      <div class="team-card-title">
         <div class="tc-name">SARA MELO</div>
         <div class="tc-role">UX Strategist · Researcher</div>
         <div class="tc-bio">Turns ambiguity into clarity. Builds user experiences grounded in research and refined by intuition.</div>
@@ -2394,7 +2479,7 @@ footer {
       <div class="team-card-top">
         <div class="tc-bg tc-4"><div class="tc-initial">A</div></div>
       </div>
-      <div class="team-card-body">
+      <div class="team-card-title">
         <div class="tc-name">ALEX FORD</div>
         <div class="tc-role">Motion Designer · 3D Artist</div>
         <div class="tc-bio">Gives static designs a heartbeat. Specialists in GSAP, Three.js, and scroll-driven storytelling.</div>
@@ -2612,7 +2697,7 @@ footer {
         </div>
         <p class="pc-desc">Perfect for early-stage startups and founders ready to make their mark with bold, intentional design.</p>
       </div>
-      <div class="price-card-body">
+      <div class="price-card-title">
         <div class="pc-features">
           <div class="pc-feat inc">Brand Identity System</div>
           <div class="pc-feat inc">Logo + 3 Variations</div>
@@ -2642,7 +2727,7 @@ footer {
         </div>
         <p class="pc-desc">The full brand and web package for companies ready to dominate their market visually and digitally.</p>
       </div>
-      <div class="price-card-body">
+      <div class="price-card-title">
         <div class="pc-features">
           <div class="pc-feat inc">Complete Brand Identity</div>
           <div class="pc-feat inc">5-Page Website Design</div>
@@ -2671,7 +2756,7 @@ footer {
         </div>
         <p class="pc-desc">Full-service engagements for enterprise brands and ambitious organisations requiring end-to-end digital transformation.</p>
       </div>
-      <div class="price-card-body">
+      <div class="price-card-title">
         <div class="pc-features">
           <div class="pc-feat inc">Full Brand Overhaul</div>
           <div class="pc-feat inc">Unlimited Pages</div>
@@ -3018,12 +3103,12 @@ function toggleMob() {
   const h = document.getElementById('ham');
   m.classList.toggle('open');
   h.classList.toggle('open');
-  document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
+  document.title.style.overflow = m.classList.contains('open') ? 'hidden' : '';
 }
 function closeMob() {
   document.getElementById('mobMenu').classList.remove('open');
   document.getElementById('ham').classList.remove('open');
-  document.body.style.overflow = '';
+  document.title.style.overflow = '';
 }
 
 /* ─────────────────────────────────────────────
@@ -3094,5 +3179,5 @@ document.querySelectorAll('.hero-ctas .btn').forEach(btn => {
   });
 });
 </script>
-</body>
+</title>
 </html>
