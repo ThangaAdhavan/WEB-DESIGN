@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta name="kombai-design-canvas" content="true">
+  <base href="http://localhost:19581/">
+  
+  
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  
+  <style>html, body { margin: 0; padding: 0; } #root { display: contents; }</style>
+</head><body>
+  <div id="root"><style data-kid="0">
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap');
+
+  .font-os { font-family: 'Oswald', sans-serif; }
+  .font-st { font-family: 'Old Standard TT', serif; }
+
+  /* ---- skeuomorphic surfaces ---- */
+  .brass { background: radial-gradient(circle at 34% 28%, #f6e2b8, #CBA135 46%, #7c5d18 100%); }
+  .knob  { background: radial-gradient(circle at 35% 30%, #f4dca8, #CBA135 45%, #8a6a1e 100%);
+           box-shadow: inset 0 2px 3px rgba(255,255,255,.55), inset 0 -3px 5px rgba(0,0,0,.6), 0 4px 8px rgba(0,0,0,.5); }
+  .metal { background: linear-gradient(150deg, #313131, #0d0d0d);
+           box-shadow: inset 0 2px 4px rgba(0,0,0,.75), inset 0 -1px 1px rgba(255,255,255,.06); }
+  .oct   { clip-path: polygon(30% 0%,70% 0%,100% 30%,100% 70%,70% 100%,30% 100%,0% 70%,0% 30%);
+           background: radial-gradient(circle at 35% 30%, #f6e2b8, #CBA135 50%, #7d5e18 100%);
+           box-shadow: inset 0 6px 12px rgba(255,255,255,.4), inset 0 -10px 18px rgba(0,0,0,.55); }
+  .leather-dark { background-image: linear-gradient(rgba(18,18,18,.6), rgba(18,18,18,.6)),
+           url('https://images.unsplash.com/photo-1605433974949-fa9fadb0c0e9?auto=format&w=1400&q=80&fit=crop');
+           background-size: cover; background-position: center; }
+  .leather-cta { background-image: linear-gradient(rgba(12,12,12,.8), rgba(12,12,12,.82)),
+           url('https://images.unsplash.com/photo-1605433974949-fa9fadb0c0e9?auto=format&w=1400&q=80&fit=crop');
+           background-size: cover; background-position: center; }
+  .plaque { background: linear-gradient(150deg, #f3d6bd, #e2bb9c 60%, #d3a987); }
+  .brass-rim { background: conic-gradient(from 40deg, #7d5e18, #f6e2b8, #CBA135, #7d5e18, #f6e2b8, #CBA135, #7d5e18); }
+
+  :where(a,button,[tabindex]):focus-visible { outline: 2px solid #CBA135; outline-offset: 3px; }
+  ::selection { background: #1B1B1B; color: #EDC9AF; }
+</style>
+
+<div class="font-st bg-[#EDC9AF] text-[#1B1B1B] antialiased overflow-x-clip" data-kid="1">
+
+  
+  <canvas id="dust" aria-hidden="true" class="fixed inset-0 z-40 pointer-events-none" data-kid="2"></canvas>
+
+  
+  <header class="absolute top-0 left-0 right-0 z-30 flex items-center justify-between px-6 sm:px-10 py-6" data-kid="3">
+    <a href="#" class="font-os font-700 tracking-[0.32em] text-lg uppercase" data-kid="4">LESS</a>
+    <span class="hidden sm:block font-os tracking-[0.35em] text-[11px] uppercase text-[#1B1B1B]/65" data-kid="5">Desert Brass — Vol. 01</span>
+    <span class="font-os tracking-[0.32em] text-[11px] uppercase flex items-center gap-2" data-kid="6"><span class="w-2 h-2 rounded-full bg-[#CBA135]" data-kid="7"></span>Index</span>
+  </header>
+
+  <section id="hero" aria-label="Introduction" class="relative min-h-screen w-full overflow-hidden" data-kid="8">
+    
+    <div class="absolute top-[10%] left-2 sm:left-6 font-os font-700 leading-none text-[#1B1B1B]/[0.045] text-[40vw] sm:text-[34vw] select-none pointer-events-none" data-kid="9">01</div>
+
+    
+    <div class="absolute bottom-24 sm:bottom-20 left-6 sm:left-10 max-w-md z-20" data-kid="10">
+      <p id="hero-eyebrow" class="font-os uppercase tracking-[0.3em] text-[11px] text-[#CBA135] mb-4" data-kid="11">A Digital Art Installation</p>
+      <h1 id="hero-head" class="font-os font-600 uppercase leading-[0.9] text-[15vw] sm:text-7xl" data-kid="12">The Art<br data-kid="13">of Less</h1>
+      <p id="hero-sub" class="font-st italic text-lg mt-5 text-[#1B1B1B]/75 leading-relaxed max-w-sm" data-kid="14">Turn the dial. Subtract everything that does not breathe. What remains is the work.</p>
+    </div>
+
+    
+    <div class="absolute bottom-16 right-4 sm:right-12 z-20" data-kid="15">
+      <div class="bg-[#1B1B1B] p-5 sm:p-6 shadow-[10px_10px_0_#1B1B1B]" data-kid="16">
+        <div class="relative w-44 h-44 sm:w-60 sm:h-60 rounded-full brass p-[6px] shadow-[0_12px_30px_rgba(0,0,0,.5)]" data-kid="17">
+          
+          <span class="absolute left-1/2 -top-1 -translate-x-1/2 w-[3px] h-4 bg-[#EDC9AF] z-20" data-kid="18"></span>
+          
+          <div id="dial" class="relative w-full h-full rounded-full overflow-hidden ring-2 ring-black/50 will-change-transform" data-kid="19">
+            <img src="https://images.unsplash.com/photo-1646657558839-84035cb00268?auto=format&w=1200&q=80&fit=crop" alt="Close-up of a vintage brass amplifier dial" class="w-full h-full object-cover" decoding="async" loading="lazy" data-kid="20">
+            <span class="absolute left-1/2 top-2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#EDC9AF] shadow-[0_0_6px_#000]" data-kid="21"></span>
+            <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full brass ring-2 ring-black/40" data-kid="22"></span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between mt-4 px-1" data-kid="23">
+          <span class="font-os uppercase tracking-[0.3em] text-[10px] text-[#EDC9AF]/70" data-kid="24">Subtraction</span>
+          <span class="font-os text-[#CBA135] text-sm" data-kid="25">∞</span>
+        </div>
+      </div>
+      <div class="font-os uppercase tracking-[0.3em] text-[10px] text-[#1B1B1B]/50 mt-4 text-right" data-kid="26">scroll to rotate ↓</div>
+    </div>
+
+    
+    <div class="absolute bottom-7 left-6 right-6 sm:left-10 sm:right-10 flex items-center justify-between font-os uppercase tracking-[0.3em] text-[10px] text-[#1B1B1B]/50" data-kid="27">
+      <span data-kid="28">Minimalism</span><span class="hidden sm:block" data-kid="29">34°N · Sahara</span><span data-kid="30">Est. MMXXVI</span>
+    </div>
+  </section>
+
+  
+  <section id="showcase" aria-label="Interactive light topography" class="w-full flex flex-col lg:flex-row border-y-4 border-[#1B1B1B]" data-kid="31">
+    
+    <div class="lg:w-[40%] lg:border-r-4 border-b-4 lg:border-b-0 border-[#1B1B1B] px-7 sm:px-12 py-14 flex flex-col" data-kid="32">
+      <p class="reveal font-os uppercase tracking-[0.3em] text-[11px] text-[#CBA135] mb-2" data-kid="33">Control Panel — 02</p>
+      <h2 class="reveal font-os font-600 uppercase text-5xl sm:text-6xl leading-[0.9] mb-12" data-kid="34">Direct<br data-kid="35">the Light</h2>
+
+      <div class="space-y-7" data-kid="36">
+        
+        <button class="toggle group w-full flex items-center justify-between border-b-2 border-[#1B1B1B]/15 pb-6 text-left" role="switch" aria-checked="true" data-light="north" aria-label="Light from the north" data-kid="37">
+          <div data-kid="38">
+            <div class="font-os uppercase tracking-[0.18em] text-xl" data-kid="39">North</div>
+            <div class="font-st italic text-sm text-[#1B1B1B]/60" data-kid="40">long shadows, cast south</div>
+          </div>
+          <span class="metal shrink-0 w-[80px] h-10 rounded-full p-1 flex items-center" data-kid="41"><span class="knob-el knob w-8 h-8 rounded-full" data-kid="42"></span></span>
+        </button>
+        <button class="toggle group w-full flex items-center justify-between border-b-2 border-[#1B1B1B]/15 pb-6 text-left" role="switch" aria-checked="false" data-light="east" aria-label="Light from the east" data-kid="43">
+          <div data-kid="44">
+            <div class="font-os uppercase tracking-[0.18em] text-xl" data-kid="45">East</div>
+            <div class="font-st italic text-sm text-[#1B1B1B]/60" data-kid="46">low, raking morning glow</div>
+          </div>
+          <span class="metal shrink-0 w-[80px] h-10 rounded-full p-1 flex items-center" data-kid="47"><span class="knob-el knob w-8 h-8 rounded-full" data-kid="48"></span></span>
+        </button>
+        <button class="toggle group w-full flex items-center justify-between border-b-2 border-[#1B1B1B]/15 pb-6 text-left" role="switch" aria-checked="false" data-light="zenith" aria-label="Light from the zenith" data-kid="49">
+          <div data-kid="50">
+            <div class="font-os uppercase tracking-[0.18em] text-xl" data-kid="51">Zenith</div>
+            <div class="font-st italic text-sm text-[#1B1B1B]/60" data-kid="52">flat, vertical midday sun</div>
+          </div>
+          <span class="metal shrink-0 w-[80px] h-10 rounded-full p-1 flex items-center" data-kid="53"><span class="knob-el knob w-8 h-8 rounded-full" data-kid="54"></span></span>
+        </button>
+        <button class="toggle group w-full flex items-center justify-between pb-1 text-left" role="switch" aria-checked="false" data-light="west" aria-label="Light from the west" data-kid="55">
+          <div data-kid="56">
+            <div class="font-os uppercase tracking-[0.18em] text-xl" data-kid="57">West</div>
+            <div class="font-st italic text-sm text-[#1B1B1B]/60" data-kid="58">dusk amber, shadows east</div>
+          </div>
+          <span class="metal shrink-0 w-[80px] h-10 rounded-full p-1 flex items-center" data-kid="59"><span class="knob-el knob w-8 h-8 rounded-full" data-kid="60"></span></span>
+        </button>
+      </div>
+
+      <p class="font-st italic text-base text-[#1B1B1B]/60 mt-auto pt-10" data-kid="61">Flip a switch. Feel the dunes change posture.</p>
+    </div>
+
+    
+    <div class="lg:w-[60%] relative overflow-hidden min-h-[60vh] lg:min-h-[88vh]" data-kid="62">
+      <img id="dune-img" src="https://images.unsplash.com/photo-1488197047962-b48492212cda?auto=format&w=1600&q=80&fit=crop" alt="Vast empty sand dune with dramatic shadows" class="absolute inset-0 w-full h-[112%] object-cover will-change-transform" decoding="async" loading="lazy" data-kid="63">
+      <div id="ov-north" class="absolute inset-0 opacity-0" style="background:linear-gradient(180deg, rgba(255,240,210,.22) 0%, rgba(27,27,27,.7) 100%)" data-kid="64"></div>
+      <div id="ov-east" class="absolute inset-0 opacity-0" style="background:linear-gradient(270deg, rgba(255,236,196,.32) 0%, rgba(27,27,27,.72) 85%)" data-kid="65"></div>
+      <div id="ov-zenith" class="absolute inset-0 opacity-0" style="background:radial-gradient(circle at 50% 25%, rgba(255,244,214,.28) 0%, rgba(27,27,27,.6) 90%)" data-kid="66"></div>
+      <div id="ov-west" class="absolute inset-0 opacity-0" style="background:linear-gradient(90deg, rgba(255,224,170,.34) 0%, rgba(27,27,27,.72) 85%)" data-kid="67"></div>
+
+      <div class="absolute top-8 right-8 font-os uppercase tracking-[0.3em] text-[#EDC9AF] text-xs z-10 flex items-center gap-2" data-kid="68"><span class="w-2 h-2 rounded-full bg-[#CBA135]" data-kid="69"></span>Live</div>
+      <div class="absolute bottom-8 left-8 z-10" data-kid="70">
+        <div class="font-os uppercase tracking-[0.3em] text-[#EDC9AF] text-sm" data-kid="71">Topography No.4</div>
+        <div id="light-readout" class="font-st italic text-[#EDC9AF]/70 text-sm mt-1" data-kid="72">Source — North</div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="principles" aria-label="Principles" class="w-full px-6 sm:px-10 py-20" data-kid="73">
+    <div class="flex items-end justify-between mb-10 border-b-4 border-[#1B1B1B] pb-5" data-kid="74">
+      <h2 class="reveal font-os font-600 uppercase text-5xl sm:text-6xl leading-none" data-kid="75">Principles</h2>
+      <p class="reveal font-st italic text-base text-[#1B1B1B]/60 max-w-xs text-right hidden sm:block" data-kid="76">Four tenets. Nothing decorative survives the edit.</p>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 grid-rows-[repeat(3,minmax(180px,1fr))] lg:grid-rows-2 gap-6 lg:h-[74vh]" data-kid="77">
+      
+      <article class="bento col-span-2 row-span-2 leather-dark border-2 border-[#1B1B1B] shadow-[8px_8px_0_#1B1B1B] p-8 sm:p-10 flex flex-col justify-between text-[#EDC9AF]" data-kid="78">
+        <div class="flex items-center justify-between" data-kid="79">
+          <p class="font-os uppercase tracking-[0.3em] text-[11px] text-[#CBA135]" data-kid="80">Manifesto</p>
+          <i class="ti ti-circle-dot text-[#CBA135] text-xl" data-kid="81"></i>
+        </div>
+        <h3 class="font-os font-500 uppercase text-3xl sm:text-5xl leading-[0.95]" data-kid="82">Remove until<br data-kid="83">it breaks.<br data-kid="84">Then add one<br data-kid="85">thing back.</h3>
+      </article>
+
+      
+      <article class="bento col-span-1 row-span-1 bg-[#1B1B1B] border-2 border-[#1B1B1B] shadow-[8px_8px_0_#1B1B1B] flex items-center justify-center" data-kid="86">
+        <div id="octagon" class="oct w-24 h-24 sm:w-28 sm:h-28 will-change-transform" data-kid="87"></div>
+      </article>
+
+      
+      <article class="bento col-span-1 row-span-1 bg-[#EDC9AF] border-2 border-[#1B1B1B] shadow-[8px_8px_0_#1B1B1B] flex items-center justify-center" data-kid="88">
+        <span class="font-os font-700 uppercase text-4xl sm:text-5xl tracking-tight" data-kid="89">PURE</span>
+      </article>
+
+      
+      <article class="bento col-span-1 row-span-1 bg-[#CBA135] border-2 border-[#1B1B1B] shadow-[8px_8px_0_#1B1B1B] flex flex-col items-center justify-center text-[#1B1B1B]" data-kid="90">
+        <span class="font-os font-700 text-5xl sm:text-6xl leading-none" data-kid="91">99</span>
+        <span class="font-os uppercase tracking-[0.25em] text-[10px] mt-2" data-kid="92">percent void</span>
+      </article>
+
+      
+      <article class="bento col-span-1 row-span-1 leather-dark border-2 border-[#1B1B1B] shadow-[8px_8px_0_#1B1B1B] flex items-center justify-center" data-kid="93">
+        <span class="font-os font-700 uppercase text-4xl sm:text-5xl tracking-tight text-[#EDC9AF]" data-kid="94">RAW</span>
+      </article>
+    </div>
+  </section>
+
+  
+  <section id="story-wrap" aria-label="Core values" class="relative bg-[#1B1B1B] text-[#EDC9AF]" data-kid="95">
+    <div id="story-pin" class="relative h-screen overflow-hidden" data-kid="96">
+      <img src="https://images.pexels.com/photos/17077987/pexels-photo-17077987.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80" alt="Dramatic dark sand dune" id="story-bg" class="absolute inset-0 w-full h-[120%] object-cover opacity-45 will-change-transform" decoding="async" loading="lazy" data-kid="97">
+      <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(27,27,27,.35), rgba(27,27,27,.9))" data-kid="98"></div>
+
+      
+      <div class="absolute top-9 left-[8vw] right-[8vw] z-10 flex items-center justify-between pointer-events-none" data-kid="99">
+        <span class="font-os uppercase tracking-[0.3em] text-[11px] text-[#CBA135]" data-kid="100">04 — The Creed</span>
+        <span class="font-os uppercase tracking-[0.3em] text-[11px] text-[#EDC9AF]/45" data-kid="101">L · E · S · S</span>
+      </div>
+      <div class="absolute top-[4.4rem] left-[8vw] right-[8vw] h-px bg-[#EDC9AF]/15 z-10 pointer-events-none" data-kid="102"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-px bg-[#CBA135]/35 z-10 pointer-events-none" data-kid="103"></div>
+
+      <div id="story-track" class="relative h-full flex items-end gap-6 sm:gap-10 px-[8vw] will-change-transform" data-kid="104">
+        
+        <div class="self-center shrink-0 w-[78vw] sm:w-[42vw] pr-6" data-kid="105">
+          <p class="font-os uppercase tracking-[0.3em] text-[11px] text-[#CBA135] mb-4" data-kid="106">The Creed — 04</p>
+          <h2 class="font-os font-600 uppercase text-5xl sm:text-7xl leading-[0.88]" data-kid="107">Four<br data-kid="108">standing<br data-kid="109">values.</h2>
+          <p class="font-st italic text-lg text-[#EDC9AF]/70 mt-6 max-w-sm" data-kid="110">Monoliths rising from the storm. Scroll sideways through the silence.</p>
+          <div class="font-os uppercase tracking-[0.3em] text-[10px] text-[#EDC9AF]/50 mt-8" data-kid="111">drag right →</div>
+        </div>
+        
+        <div class="pillar shrink-0 w-[40vw] sm:w-[20vw] h-[46vh] bg-[#101010] border-t-4 border-[#CBA135] flex items-center justify-center shadow-[10px_-10px_0_rgba(0,0,0,.4)] will-change-transform" data-kid="112">
+          <span class="font-os font-700 text-[#EDC9AF] text-[24vw] sm:text-[14vw] leading-none" data-kid="113">L</span>
+        </div>
+        <div class="pillar shrink-0 w-[40vw] sm:w-[20vw] h-[68vh] bg-[#101010] border-t-4 border-[#CBA135] flex items-center justify-center shadow-[10px_-10px_0_rgba(0,0,0,.4)] will-change-transform" data-kid="114">
+          <span class="font-os font-700 text-[#EDC9AF] text-[24vw] sm:text-[14vw] leading-none" data-kid="115">E</span>
+        </div>
+        <div class="pillar shrink-0 w-[40vw] sm:w-[20vw] h-[40vh] bg-[#101010] border-t-4 border-[#CBA135] flex items-center justify-center shadow-[10px_-10px_0_rgba(0,0,0,.4)] will-change-transform" data-kid="116">
+          <span class="font-os font-700 text-[#EDC9AF] text-[24vw] sm:text-[14vw] leading-none" data-kid="117">S</span>
+        </div>
+        <div class="pillar shrink-0 w-[40vw] sm:w-[20vw] h-[58vh] bg-[#101010] border-t-4 border-[#CBA135] flex items-center justify-center shadow-[10px_-10px_0_rgba(0,0,0,.4)] will-change-transform" data-kid="118">
+          <span class="font-os font-700 text-[#EDC9AF] text-[24vw] sm:text-[14vw] leading-none" data-kid="119">S</span>
+        </div>
+        
+        <div class="self-center shrink-0 w-[70vw] sm:w-[30vw] pl-2 pr-[6vw]" data-kid="120">
+          <p class="font-os uppercase tracking-[0.2em] text-2xl sm:text-3xl leading-tight" data-kid="121">Light · Essential · Slow · Still</p>
+          <p class="font-st italic text-[#EDC9AF]/60 mt-4" data-kid="122">The whole creed in a single, quiet word.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="cta" aria-label="Enter the installation" class="leather-cta w-full min-h-screen flex flex-col items-center justify-center relative py-24 px-6 text-center" data-kid="123">
+    <p class="reveal font-os uppercase tracking-[0.45em] text-[#CBA135] text-xs mb-10" data-kid="124">Step Through</p>
+
+    <button id="peephole" class="relative block focus-visible:outline-none" aria-label="Enter the installation" data-kid="125">
+      <div class="brass-rim rounded-full p-[10px] shadow-[0_30px_70px_rgba(0,0,0,.65)] will-change-transform" data-kid="126">
+        <div class="relative rounded-full overflow-hidden w-[68vw] h-[68vw] max-w-[380px] max-h-[380px] shadow-[inset_0_0_45px_rgba(0,0,0,.85)]" data-kid="127">
+          <video class="w-full h-full object-cover" autoplay muted loop playsinline preload="metadata" poster="https://images.pexels.com/videos/5234909/dust-dust-motes-magic-mother-nature-5234909.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80" data-kid="128">
+            <source src="https://videos.pexels.com/video-files/5234909/5234909-hd_1920_1080_25fps.mp4" type="video/mp4" data-kid="129">
+          </video>
+          <span class="absolute inset-0 flex items-center justify-center" data-kid="130">
+            <span class="font-os uppercase tracking-[0.35em] text-[#1B1B1B] bg-[#EDC9AF]/85 px-6 py-2.5 text-sm shadow-[4px_4px_0_#1B1B1B]" data-kid="131">Enter</span>
+          </span>
+        </div>
+      </div>
+      <span class="absolute -inset-3 rounded-full ring-1 ring-[#CBA135]/30" data-kid="132"></span>
+    </button>
+
+    <h2 class="reveal font-os font-500 uppercase text-3xl sm:text-4xl text-[#EDC9AF] mt-12 leading-tight" data-kid="133">Beyond the lens,<br data-kid="134">only light and sand.</h2>
+    <p class="reveal font-st italic text-[#EDC9AF]/55 mt-4 text-lg max-w-sm" data-kid="135">A room with nothing in it but everything you need.</p>
+  </section>
+
+  
+  <footer aria-label="Footer" class="w-full bg-[#EDC9AF] relative overflow-hidden py-28 sm:py-36 flex items-center justify-center" data-kid="136">
+    <span id="finis" class="absolute inset-0 flex items-center justify-center pointer-events-none font-os font-700 uppercase text-[#1B1B1B]/[0.07] text-[34vw] leading-none select-none will-change-transform" style="text-shadow:1px 1px 0 rgba(255,255,255,.4)" data-kid="137">FINIS</span>
+
+    <div class="relative plaque border-2 border-[#CBA135] shadow-[0_14px_40px_rgba(0,0,0,.28)] px-10 sm:px-14 py-9 text-center max-w-[90vw]" data-kid="138">
+      <div class="absolute top-2 left-2 w-2 h-2 rounded-full bg-[#7d5e18]/60" data-kid="139"></div>
+      <div class="absolute top-2 right-2 w-2 h-2 rounded-full bg-[#7d5e18]/60" data-kid="140"></div>
+      <div class="absolute bottom-2 left-2 w-2 h-2 rounded-full bg-[#7d5e18]/60" data-kid="141"></div>
+      <div class="absolute bottom-2 right-2 w-2 h-2 rounded-full bg-[#7d5e18]/60" data-kid="142"></div>
+      <div class="font-os font-600 uppercase tracking-[0.3em] text-[#1B1B1B] text-sm mb-3" data-kid="143">LESS — Desert Brass</div>
+      <div class="flex flex-wrap justify-center gap-x-7 gap-y-2 font-os uppercase tracking-[0.2em] text-xs text-[#1B1B1B]/70" data-kid="144">
+        <a href="#" class="hover:text-[#1B1B1B]" data-kid="145">Privacy</a>
+        <a href="#" class="hover:text-[#1B1B1B]" data-kid="146">Contact</a>
+        <a href="#" class="hover:text-[#1B1B1B]" data-kid="147">Index</a>
+        <a href="#" class="hover:text-[#1B1B1B]" data-kid="148">© MMXXVI</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont/tabler-icons.min.css" data-kid="149">
+
+<link rel="stylesheet" href="https://unpkg.com/lenis@1/dist/lenis.css" data-kid="150">
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" data-kid="151"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" data-kid="152"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/SplitText.min.js" data-kid="153"></script>
+
+<script type="module" data-kid="154">
+  import Lenis from "https://esm.sh/lenis@1";
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  /* ---------- LENIS + GSAP bridge ---------- */
+  let velAbs = 0;
+  if (!reduce) {
+    const lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
+    lenis.on('scroll', (e) => { velAbs = Math.abs(e.velocity || 0); ScrollTrigger.update(); });
+    gsap.ticker.add((t) => lenis.raf(t * 1000));
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  /* ---------- HERO reveal ---------- */
+  window.addEventListener('load', () => {
+    if (!reduce) {
+      const split = new SplitText('#hero-head', { type: 'chars' });
+      gsap.from(split.chars, { yPercent: 110, autoAlpha: 0, stagger: 0.05, duration: 0.9, ease: 'power4.out', delay: 0.15 });
+      gsap.from('#hero-eyebrow', { autoAlpha: 0, y: 20, duration: 0.8, ease: 'power3.out', delay: 0.1 });
+      gsap.from('#hero-sub', { autoAlpha: 0, y: 24, duration: 0.9, ease: 'power3.out', delay: 0.5 });
+    }
+    ScrollTrigger.refresh();
+  });
+
+  /* ---------- DIAL scrub rotation ---------- */
+  gsap.to('#dial', {
+    rotation: 540, ease: 'none',
+    scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true }
+  });
+
+  /* ---------- generic reveals ---------- */
+  gsap.utils.toArray('.reveal').forEach((el) => {
+    gsap.from(el, {
+      autoAlpha: 0, y: 40, duration: 0.9, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 85%' }
+    });
+  });
+
+  /* ---------- bento batch ---------- */
+  gsap.set('.bento', { autoAlpha: 0, y: 40 });
+  ScrollTrigger.batch('.bento', {
+    start: 'top 88%',
+    onEnter: (els) => gsap.to(els, { autoAlpha: 1, y: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out', overwrite: true })
+  });
+
+  /* ---------- octagon rotate on scroll ---------- */
+  gsap.to('#octagon', {
+    rotation: 200, ease: 'none',
+    scrollTrigger: { trigger: '#principles', start: 'top bottom', end: 'bottom top', scrub: true }
+  });
+
+  /* ---------- dune parallax ---------- */
+  gsap.to('#dune-img', { yPercent: -10, ease: 'none', scrollTrigger: { trigger: '#showcase', start: 'top bottom', end: 'bottom top', scrub: true } });
+  gsap.to('#story-bg', { yPercent: -12, ease: 'none', scrollTrigger: { trigger: '#story-wrap', start: 'top bottom', end: 'bottom top', scrub: true } });
+  gsap.to('#finis', { yPercent: -8, ease: 'none', scrollTrigger: { trigger: '#finis', start: 'top bottom', end: 'bottom top', scrub: true } });
+
+  /* ---------- interactive toggles ---------- */
+  const overlays = {
+    north: document.getElementById('ov-north'),
+    east: document.getElementById('ov-east'),
+    zenith: document.getElementById('ov-zenith'),
+    west: document.getElementById('ov-west')
+  };
+  const labels = { north: 'North', east: 'East', zenith: 'Zenith', west: 'West' };
+  const readout = document.getElementById('light-readout');
+  const toggles = document.querySelectorAll('.toggle');
+  Object.values(overlays).forEach((o) => gsap.set(o, { autoAlpha: 0 }));
+
+  function setLight(dir) {
+    toggles.forEach((t) => {
+      const on = t.dataset.light === dir;
+      t.setAttribute('aria-checked', on ? 'true' : 'false');
+      gsap.to(t.querySelector('.knob-el'), { x: on ? 40 : 0, duration: 0.55, ease: 'back.out(3.4)' });
+    });
+    for (const k in overlays) gsap.to(overlays[k], { autoAlpha: k === dir ? 1 : 0, duration: 0.8, ease: 'power2.out' });
+    if (readout) readout.textContent = 'Source — ' + labels[dir];
+  }
+  toggles.forEach((t) => t.addEventListener('click', () => setLight(t.dataset.light)));
+  setLight('north');
+
+  /* ---------- pinned horizontal story ---------- */
+  const track = document.getElementById('story-track');
+  const getAmount = () => Math.max(0, track.scrollWidth - window.innerWidth);
+  const hTween = gsap.to(track, {
+    x: () => -getAmount(), ease: 'none',
+    scrollTrigger: {
+      trigger: '#story-pin', start: 'top top',
+      end: () => '+=' + getAmount(), pin: true, scrub: 1, invalidateOnRefresh: true,
+      anticipatePin: 1
+    }
+  });
+  gsap.utils.toArray('.pillar').forEach((p) => {
+    gsap.from(p, {
+      yPercent: 55, autoAlpha: 0, ease: 'power3.out', duration: 0.6,
+      scrollTrigger: { trigger: p, containerAnimation: hTween, start: 'left 82%', toggleActions: 'play none none reverse' }
+    });
+  });
+
+  /* ---------- peephole hover ---------- */
+  const peep = document.getElementById('peephole');
+  if (peep && !reduce) {
+    peep.addEventListener('mouseenter', () => gsap.to(peep, { scale: 1.07, duration: 0.5, ease: 'power3.out' }));
+    peep.addEventListener('mousemove', (e) => {
+      const r = peep.getBoundingClientRect();
+      const mx = (e.clientX - (r.left + r.width / 2)) / r.width;
+      const my = (e.clientY - (r.top + r.height / 2)) / r.height;
+      gsap.to(peep, { x: mx * 26, y: my * 26, duration: 0.6, ease: 'power3.out' });
+    });
+    peep.addEventListener('mouseleave', () => gsap.to(peep, { scale: 1, x: 0, y: 0, duration: 0.6, ease: 'power3.out' }));
+    peep.addEventListener('focus', () => gsap.to(peep, { scale: 1.07, duration: 0.4 }));
+    peep.addEventListener('blur', () => gsap.to(peep, { scale: 1, x: 0, y: 0, duration: 0.4 }));
+  }
+
+  /* ============ SAND DUST PARTICLES ============ */
+  (function () {
+    const canvas = document.getElementById('dust');
+    const ctx = canvas.getContext('2d');
+    let W = 0, H = 0, DPR = 1, motes = [], raf = null, running = true;
+    const rand = (a, b) => a + Math.random() * (b - a);
+
+    const layers = [
+      { count: 60, size: [0.4, 1.0], speed: 0.22, alpha: 0.10, color: '237,201,175' },
+      { count: 55, size: [0.7, 1.5], speed: 0.45, alpha: 0.13, color: '203,161,53' },
+      { count: 35, size: [1.3, 2.3], speed: 0.85, alpha: 0.17, color: '237,201,175' }
+    ];
+
+    function resize() {
+      DPR = Math.min(window.devicePixelRatio || 1, 2);
+      W = window.innerWidth; H = window.innerHeight;
+      canvas.width = W * DPR; canvas.height = H * DPR;
+      canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    }
+    function init() {
+      motes = [];
+      layers.forEach((l, li) => {
+        for (let i = 0; i < l.count; i++) {
+          motes.push({ x: Math.random() * W, y: Math.random() * H, r: rand(l.size[0], l.size[1]), phase: Math.random() * Math.PI * 2, layer: li });
+        }
+      });
+    }
+    resize(); init();
+    window.addEventListener('resize', () => { resize(); init(); });
+
+    let t = 0, last = performance.now(), windBoost = 0;
+    function frame(now) {
+      const dt = Math.min((now - last) / 16.67, 3); last = now; t += 0.016 * dt;
+      windBoost += (Math.min(velAbs * 0.5, 7) - windBoost) * 0.08;
+      ctx.clearRect(0, 0, W, H);
+      for (const m of motes) {
+        const l = layers[m.layer];
+        const wind = (0.35 + l.speed) * (1 + windBoost);
+        m.x += wind * dt;
+        m.y += (Math.sin(t * 0.6 + m.phase) * 0.22 + Math.sin(t * 1.3 + m.x * 0.012) * 0.16) * dt;
+        if (m.x > W + 6) m.x = -6; else if (m.x < -6) m.x = W + 6;
+        if (m.y > H + 6) m.y = -6; else if (m.y < -6) m.y = H + 6;
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(' + l.color + ',' + l.alpha + ')';
+        ctx.arc(m.x, m.y, m.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      raf = requestAnimationFrame(frame);
+    }
+
+    if (reduce) {
+      ctx.clearRect(0, 0, W, H);
+      for (const m of motes) {
+        const l = layers[m.layer];
+        ctx.beginPath(); ctx.fillStyle = 'rgba(' + l.color + ',' + l.alpha + ')';
+        ctx.arc(m.x, m.y, m.r, 0, Math.PI * 2); ctx.fill();
+      }
+    } else {
+      raf = requestAnimationFrame(frame);
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) { if (raf) cancelAnimationFrame(raf); running = false; }
+        else if (!running) { running = true; last = performance.now(); raf = requestAnimationFrame(frame); }
+      });
+    }
+  })();
+</script></div>
+  
+  
+</body></html>

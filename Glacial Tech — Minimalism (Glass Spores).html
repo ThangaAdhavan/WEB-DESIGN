@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta name="kombai-design-canvas" content="true">
+  <base href="http://localhost:19581/">
+  
+  
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  
+  <style>html, body { margin: 0; padding: 0; } #root { display: contents; }</style>
+</head><body>
+  <div id="root"><style data-kid="0">
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Sans:wght@300;400;500;600&display=swap');
+  @import url('https://cdn.jsdelivr.net/npm/@tabler/icons-webfont/tabler-icons.min.css');
+
+  :root{ --ghost:#F8F8FF; --ink:#010B13; --blue:#0070FF; }
+  body{ background:var(--ghost); color:var(--ink); font-family:'Fira Sans',sans-serif; -webkit-font-smoothing:antialiased; }
+  .fg-head{ font-family:'Space Grotesk',sans-serif; }
+  .fg-body{ font-family:'Fira Sans',sans-serif; }
+
+  #spores{ position:fixed; inset:0; z-index:40; pointer-events:none; }
+  #progress{ transform:scaleX(0); transform-origin:left; }
+
+  .wbar{ transform-origin:center; will-change:transform; }
+
+  /* CTA cursor spotlight */
+  #cta-reveal{
+    -webkit-mask-image: radial-gradient(circle 240px at var(--mx,50%) var(--my,46%), #000 0%, #000 30%, rgba(0,0,0,.25) 58%, transparent 76%);
+            mask-image: radial-gradient(circle 240px at var(--mx,50%) var(--my,46%), #000 0%, #000 30%, rgba(0,0,0,.25) 58%, transparent 76%);
+  }
+  #cta.reveal-all #cta-reveal{ -webkit-mask-image:none; mask-image:none; }
+  @media (prefers-reduced-motion: reduce){ #cta-reveal{ -webkit-mask-image:none; mask-image:none; } }
+
+  /* Footer reveal */
+  .void-contacts{ clip-path: inset(0 0 100% 0); filter: blur(10px); opacity:0; transition: clip-path .8s cubic-bezier(.16,1,.3,1), filter .8s ease, opacity .6s ease; }
+  .void-mark:hover .void-contacts, .void-mark:focus-within .void-contacts{ clip-path: inset(0 0 0% 0); filter: blur(0); opacity:1; }
+  .void-glyph{ transition: letter-spacing .8s cubic-bezier(.16,1,.3,1), color .5s ease; }
+  .void-mark:hover .void-glyph{ letter-spacing:.08em; color:var(--blue); }
+
+  #ba-handle{ transition: transform .25s ease, box-shadow .25s ease; }
+  #ba-handle:hover{ transform:translate(-50%,-50%) scale(1.08); }
+
+  .glass-card{ backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  ::selection{ background:var(--blue); color:var(--ghost); }
+</style>
+
+
+<canvas id="spores" aria-hidden="true" data-kid="1"></canvas>
+
+
+<div id="progress" class="fixed top-0 left-0 right-0 h-[2px] bg-[#0070FF] z-50" data-kid="2"></div>
+
+
+<header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10 py-5 mix-blend-difference text-[#F8F8FF]" data-kid="3">
+  <a href="#hero" class="fg-head text-sm font-semibold tracking-[0.45em] focus-visible:outline focus-visible:outline-1 focus-visible:outline-current" data-kid="4">VOID</a>
+  <span class="hidden md:block text-[11px] tracking-[0.35em] text-current/70 fg-body" data-kid="5">GLACIAL TECH — A STUDY OF MINIMALISM</span>
+  <span class="text-[11px] tracking-[0.35em] text-current/70 fg-body" data-kid="6">N°01 / 06</span>
+</header>
+
+<main data-kid="7">
+  
+  <section id="hero" aria-label="Introduction" class="relative h-screen w-full overflow-hidden bg-[#010B13]" data-kid="8">
+    <video class="absolute inset-0 h-full w-full object-cover opacity-80" poster="https://images.pexels.com/videos/3971197/abstract-colours-food-colouring-macro-3971197.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80" autoplay muted loop playsinline preload="metadata" aria-hidden="true" data-kid="9">
+      <source src="https://videos.pexels.com/video-files/3971197/3971197-hd_1920_1080_24fps.mp4" type="video/mp4" data-kid="10">
+    </video>
+    <div class="absolute inset-0" style="background:radial-gradient(circle at 50% 46%, rgba(248,248,255,.14), rgba(1,11,19,.55) 45%, rgba(1,11,19,.92) 100%);" data-kid="11"></div>
+
+    
+    <div class="absolute inset-0 grid grid-cols-12 pointer-events-none" aria-hidden="true" data-kid="12">
+      <div class="col-start-2 border-l border-white/10" data-kid="13"></div>
+      <div class="col-start-6 border-l border-white/10" data-kid="14"></div>
+      <div class="col-start-11 border-l border-white/10" data-kid="15"></div>
+    </div>
+
+    
+    <div id="watermark" class="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true" data-kid="16">
+      <span class="fg-head font-bold leading-none text-[#010B13] select-none" style="font-size:44vw; letter-spacing:-0.06em; text-shadow:0 0 1px rgba(0,112,255,.35);" data-kid="17">01</span>
+    </div>
+
+    
+    <div class="absolute inset-0 flex items-center justify-center px-6" data-kid="18">
+      <div id="hero-pane" class="relative aspect-square w-[440px] max-w-[86vw] glass-card bg-white/10 flex flex-col justify-between p-8 md:p-10" style="box-shadow: inset 0 0 0 1px rgba(0,112,255,.55), inset 0 1px 0 0 rgba(255,255,255,.25), 0 40px 100px -25px rgba(0,0,0,.75);" data-kid="19">
+        <div class="flex items-center justify-between text-[10px] tracking-[0.38em] text-[#F8F8FF]/70 fg-head" data-kid="20">
+          <span data-kid="21">FROSTED PANE / 01</span>
+          <i class="ti ti-wave-sine text-base text-[#0070FF]" data-kid="22"></i>
+        </div>
+        <p id="hero-line" class="fg-head text-[#F8F8FF] text-[26px] md:text-[30px] leading-[1.25] font-light" data-kid="23">
+          A study of <span class="text-[#0070FF] font-medium" data-kid="24">absence</span> — where the least content yields the most clarity.
+        </p>
+        <div id="hero-meta" class="flex items-center justify-between text-[10px] tracking-[0.38em] text-[#F8F8FF]/70 fg-head" data-kid="25">
+          <span data-kid="26">SCROLL TO ENTER</span>
+          <span class="inline-block" data-kid="27">↓</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="showcase" aria-label="Duality showcase" class="relative w-full bg-[#F8F8FF] py-20 md:py-28 px-6 md:px-10" data-kid="28">
+    <div class="max-w-6xl mx-auto" data-kid="29">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10" data-reveal data-kid="30">
+        <div data-kid="31">
+          <span class="text-[11px] tracking-[0.42em] text-[#0070FF] fg-head" data-kid="32">02 — DUALITY</span>
+          <h2 class="fg-head text-[#010B13] text-4xl md:text-6xl font-medium mt-3 tracking-tight leading-none" data-kid="33">Flat <span class="text-[#010B13]/30" data-kid="34">/</span> Refracted</h2>
+        </div>
+        <p class="fg-body text-[#010B13]/55 max-w-sm text-sm leading-relaxed" data-kid="35">Drag the divider. A brutalist wireframe resolves into rendered glass — two states of a single object.</p>
+      </div>
+
+      <div id="ba-wrap" data-reveal class="relative aspect-[16/10] w-full overflow-hidden select-none cursor-ew-resize bg-[#F8F8FF]" style="box-shadow: inset 0 0 0 1px #010B13;" data-kid="36">
+        
+        <img src="https://images.unsplash.com/photo-1562162135-9f64f33e623b?auto=format&w=1200&q=80&fit=crop" class="absolute inset-0 h-full w-full object-cover" decoding="async" loading="lazy" alt="Clear crystalline structure rendered in glass" data-kid="37">
+        <div class="absolute inset-0 bg-[#010B13]/10" data-kid="38"></div>
+        <span class="absolute top-5 right-5 text-[10px] tracking-[0.35em] text-white/85 fg-head" data-kid="39">GLASS · RENDERED</span>
+
+        
+        <div id="ba-wire" class="absolute inset-0 bg-[#F8F8FF]" style="clip-path: inset(0 50% 0 0);" data-kid="40">
+          <svg viewBox="0 0 600 420" fill="none" stroke="#010B13" stroke-width="1.3" stroke-linejoin="round" class="absolute inset-0 h-full w-full p-10" aria-hidden="true" data-kid="41">
+            <polygon points="230,70 370,70 470,200 300,360 130,200" data-kid="42"></polygon>
+            <line x1="130" y1="200" x2="470" y2="200" data-kid="43"></line>
+            <line x1="230" y1="70" x2="200" y2="200" data-kid="44"></line>
+            <line x1="370" y1="70" x2="400" y2="200" data-kid="45"></line>
+            <line x1="230" y1="70" x2="300" y2="200" data-kid="46"></line>
+            <line x1="370" y1="70" x2="300" y2="200" data-kid="47"></line>
+            <line x1="300" y1="200" x2="300" y2="360" data-kid="48"></line>
+            <line x1="200" y1="200" x2="300" y2="360" data-kid="49"></line>
+            <line x1="400" y1="200" x2="300" y2="360" data-kid="50"></line>
+            <line x1="180" y1="135" x2="420" y2="135" data-kid="51"></line>
+          </svg>
+          <span class="absolute top-5 left-5 text-[10px] tracking-[0.35em] text-[#010B13]/55 fg-head" data-kid="52">WIREFRAME · FLAT</span>
+          <span class="absolute bottom-5 left-5 text-[10px] tracking-[0.3em] text-[#010B13]/40 fg-body" data-kid="53">OBJ_001 · 12 FACETS · 0 FILL</span>
+        </div>
+
+        
+        <div id="ba-divider" class="absolute top-0 bottom-0 w-12 z-10" style="left:calc(50% - 24px);" data-kid="54">
+          <div class="absolute inset-y-0 left-1/2 w-px -ml-px bg-[#0070FF]" data-kid="55"></div>
+          <div id="ba-handle" class="absolute top-1/2 left-1/2 h-14 w-14 rounded-full bg-white/70 backdrop-blur-md flex items-center justify-center" style="transform:translate(-50%,-50%); box-shadow:0 0 0 1px #0070FF, 0 10px 30px rgba(0,0,0,.22);" data-kid="56">
+            <span class="text-[#0070FF] text-xl" data-kid="57">⇆</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center justify-between mt-4 text-[10px] tracking-[0.3em] text-[#010B13]/40 fg-head" data-kid="58">
+        <span data-kid="59">← BRUTALIST</span><span data-kid="60">SKEUOMORPHIC →</span>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="features" aria-label="Properties" class="relative w-full overflow-hidden bg-[#F8F8FF] py-24 md:py-32 px-6 md:px-10" data-kid="61">
+    
+    <div class="absolute inset-0" aria-hidden="true" data-kid="62">
+      <div class="absolute inset-0 bg-[#0070FF]/10" style="clip-path:polygon(0 0, 58% 0, 30% 100%, 0 100%);" data-kid="63"></div>
+      <div class="absolute inset-0 bg-[#0070FF]/[0.06]" style="clip-path:polygon(70% 0, 100% 0, 100% 100%, 44% 100%);" data-kid="64"></div>
+      <div class="absolute inset-0 bg-[#010B13]/[0.03]" style="clip-path:polygon(0 78%, 100% 52%, 100% 100%, 0 100%);" data-kid="65"></div>
+    </div>
+
+    <div class="relative z-10 max-w-6xl mx-auto" data-kid="66">
+      <div class="flex items-end justify-between mb-10" data-reveal data-kid="67">
+        <div data-kid="68">
+          <span class="text-[11px] tracking-[0.42em] text-[#0070FF] fg-head" data-kid="69">03 — PROPERTIES</span>
+          <h2 class="fg-head text-[#010B13] text-4xl md:text-5xl font-medium mt-3 tracking-tight" data-kid="70">Light, held in grid.</h2>
+        </div>
+        <span class="hidden md:block text-[11px] tracking-[0.3em] text-[#010B13]/40 fg-head" data-kid="71">05 PANES</span>
+      </div>
+
+      <div class="grid grid-cols-12 auto-rows-[130px] gap-4 md:gap-5" data-kid="72">
+        
+        <article data-reveal data-depth="-44" class="col-span-12 md:col-span-5 row-span-2 glass-card bg-white/40 p-7 flex flex-col justify-between" style="box-shadow: inset 0 0 0 1px rgba(1,11,19,.14), 0 24px 60px -28px rgba(0,0,0,.3);" data-kid="73">
+          <div class="flex items-start justify-between" data-kid="74">
+            <span class="fg-head text-[#010B13] text-3xl md:text-4xl font-medium tracking-tight" data-kid="75">Refraction</span>
+            <span class="text-[10px] tracking-[0.3em] text-[#0070FF] fg-head mt-2" data-kid="76">01</span>
+          </div>
+          <div class="h-24 w-full overflow-hidden" style="box-shadow:inset 0 0 0 1px rgba(1,11,19,.1);" data-kid="77">
+            <img src="https://images.unsplash.com/photo-1594267100238-fd7b1925d6a3?auto=format&w=1400&q=80&fit=crop" class="h-full w-full object-cover" decoding="async" loading="lazy" alt="Abstract frosted glass refracting blue light" data-kid="78">
+          </div>
+          <p class="text-sm text-[#010B13]/55 leading-relaxed" data-kid="79">Every surface bends the diagonal light differently against the Swiss grid.</p>
+        </article>
+        
+        <article data-reveal data-depth="34" class="col-span-7 md:col-span-4 glass-card bg-white/30 p-6 flex items-center justify-between" style="box-shadow: inset 0 0 0 1px rgba(0,112,255,.32);" data-kid="80">
+          <span class="fg-head text-[#0070FF] text-2xl font-medium" data-kid="81">Depth</span>
+          <span class="text-[10px] tracking-[0.3em] text-[#010B13]/40 fg-head" data-kid="82">02</span>
+        </article>
+        
+        <article data-reveal data-depth="-72" class="col-span-5 md:col-span-3 row-span-3 glass-card bg-white/50 p-6 flex flex-col justify-between" style="box-shadow: inset 0 0 0 1px rgba(1,11,19,.12), 0 30px 70px -30px rgba(0,0,0,.35);" data-kid="83">
+          <span class="text-[10px] tracking-[0.3em] text-[#0070FF] fg-head" data-kid="84">03</span>
+          <div class="h-28 w-full overflow-hidden" style="box-shadow:inset 0 0 0 1px rgba(1,11,19,.1);" data-kid="85">
+            <img src="https://images.unsplash.com/photo-1551161440-88a5c5b09ba0?auto=format&w=1000&q=80&fit=crop" class="h-full w-full object-cover" decoding="async" loading="lazy" alt="High-contrast architectural shadow" data-kid="86">
+          </div>
+          <span class="fg-head text-[#010B13] text-2xl font-medium tracking-tight" data-kid="87">Clarity</span>
+        </article>
+        
+        <article data-reveal data-depth="22" class="col-span-7 md:col-span-4 row-span-2 glass-card bg-white/35 p-6 flex flex-col justify-between" style="box-shadow: inset 0 0 0 1px rgba(1,11,19,.12);" data-kid="88">
+          <div class="flex items-center justify-between" data-kid="89">
+            <span class="fg-head text-[#010B13] text-2xl font-medium" data-kid="90">Precision</span>
+            <span class="text-[10px] tracking-[0.3em] text-[#010B13]/40 fg-head" data-kid="91">04</span>
+          </div>
+          <p class="text-sm text-[#010B13]/55 leading-relaxed" data-kid="92">Razor-sharp boundaries. Hairline rules. Nothing approximate.</p>
+        </article>
+        
+        <article data-reveal data-depth="56" class="col-span-12 md:col-span-5 glass-card bg-white/25 p-6 flex items-center justify-between" style="box-shadow: inset 0 0 0 1px rgba(1,11,19,.1);" data-kid="93">
+          <span class="fg-head text-[#010B13] text-2xl font-medium" data-kid="94">Silence</span>
+          <span class="fg-head text-[#0070FF] text-3xl font-light tracking-tight" data-kid="95">∞ <span class="text-[#010B13]/40 text-sm align-middle" data-kid="96">/ 05</span></span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="story" aria-label="Signal" class="relative w-full bg-[#010B13] py-24 md:py-32 px-6 md:px-10" data-kid="97">
+    <div class="max-w-6xl mx-auto grid grid-cols-12 gap-6 md:gap-10 items-center" data-kid="98">
+      
+      <div class="col-span-12 md:col-span-3 border-l border-white/15 pl-5" data-kid="99">
+        <span class="text-[11px] tracking-[0.42em] text-[#0070FF] fg-head" data-kid="100">04 — SIGNAL</span>
+        <h3 class="fg-head text-[#F8F8FF] text-3xl md:text-4xl font-light mt-5 leading-[1.1] tracking-tight" data-kid="101">Signal<br data-kid="102">of<br data-kid="103">silence</h3>
+        <div class="mt-6 space-y-1.5 text-[10px] tracking-[0.25em] text-white/40 fg-head" data-kid="104">
+          <div class="flex justify-between border-t border-white/10 pt-1.5" data-kid="105"><span data-kid="106">AMP</span><span data-kid="107">0.00</span></div>
+          <div class="flex justify-between border-t border-white/10 pt-1.5" data-kid="108"><span data-kid="109">FREQ</span><span data-kid="110">48 HZ</span></div>
+          <div class="flex justify-between border-t border-white/10 pt-1.5" data-kid="111"><span data-kid="112">SCRUB</span><span data-kid="113">↕</span></div>
+        </div>
+        <p class="text-xs text-white/45 mt-6 leading-relaxed fg-body" data-kid="114">Scroll scrubs the waveform — structure emerging from the center line.</p>
+      </div>
+
+      
+      <div class="col-span-12 md:col-span-9 relative" data-kid="115">
+        <div class="absolute inset-x-0 top-1/2 h-px bg-white/15" aria-hidden="true" data-kid="116"></div>
+        <div id="wave" class="relative flex items-center justify-between gap-[3px] h-72 md:h-80 border-t border-b border-white/10 px-1" aria-hidden="true" data-kid="117"></div>
+        <div class="flex items-center justify-between mt-3 text-[10px] tracking-[0.3em] text-white/35 fg-head" data-kid="118">
+          <span data-kid="119">00</span><span data-kid="120">12</span><span data-kid="121">24</span><span data-kid="122">36</span><span data-kid="123">48</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="cta" aria-label="Request access" class="relative w-full min-h-screen bg-[#010B13] overflow-hidden flex items-center justify-center px-6" data-kid="124">
+    <div id="cta-glow" class="absolute pointer-events-none" style="left:0;top:0;width:620px;height:620px;background:radial-gradient(circle, rgba(0,112,255,.16), transparent 60%);" data-kid="125"></div>
+    
+    <span class="absolute top-10 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.4em] text-white/25 fg-head" data-kid="126">MOVE CURSOR TO REVEAL</span>
+
+    <div id="cta-reveal" class="relative z-10 text-center" style="--mx:50%; --my:46%;" data-kid="127">
+      <span class="text-[11px] tracking-[0.42em] text-[#0070FF] fg-head" data-kid="128">05 — ENTER</span>
+      <h2 class="fg-head text-[#F8F8FF] text-[14vw] md:text-[10rem] leading-[0.9] font-medium tracking-tighter mt-5" data-kid="129">THE VOID</h2>
+      <p class="text-white/55 fg-body text-sm md:text-base mt-6 max-w-md mx-auto" data-kid="130">A limited admission to the installation. Profound minimalism, by request only.</p>
+      <button id="cta-btn" class="group mt-10 inline-flex items-center gap-3 px-8 py-4 glass-card bg-white/10 text-[#F8F8FF] fg-head text-sm tracking-[0.2em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#0070FF]" style="box-shadow: inset 0 0 0 1px rgba(0,112,255,.6), 0 14px 40px -12px rgba(0,112,255,.4);" data-kid="131">
+        REQUEST ACCESS
+        <i class="ti ti-arrow-up-right text-lg text-[#0070FF]" data-kid="132"></i>
+      </button>
+    </div>
+  </section>
+</main>
+
+
+<footer aria-label="Footer" class="relative w-full bg-[#F8F8FF] pt-px" data-kid="133">
+  <div class="w-full h-px bg-[#010B13]" data-kid="134"></div>
+  <div class="void-mark relative flex flex-col items-center justify-center py-20 md:py-28" data-kid="135">
+    <span class="void-glyph fg-head text-[#010B13] text-[22vw] md:text-[16rem] leading-none font-bold tracking-tighter cursor-default select-none" tabindex="0" style="text-shadow:0 0 1px rgba(0,112,255,.25);" data-kid="136">VOID</span>
+    <div class="void-contacts mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm fg-head tracking-[0.15em]" data-kid="137">
+      <a href="#" class="text-[#010B13] hover:text-[#0070FF] focus-visible:outline focus-visible:outline-1" data-kid="138">hello@void.studio</a>
+      <span class="text-[#010B13]/20" data-kid="139">·</span>
+      <a href="#" class="text-[#010B13] hover:text-[#0070FF] focus-visible:outline focus-visible:outline-1" data-kid="140">INSTAGRAM</a>
+      <span class="text-[#010B13]/20" data-kid="141">·</span>
+      <a href="#" class="text-[#010B13] hover:text-[#0070FF] focus-visible:outline focus-visible:outline-1" data-kid="142">X / TWITTER</a>
+      <span class="text-[#010B13]/20" data-kid="143">·</span>
+      <span class="text-[#010B13]/50" data-kid="144">REYKJAVÍK 64°N</span>
+    </div>
+  </div>
+  <div class="w-full h-px bg-[#010B13]/15" data-kid="145"></div>
+  <div class="flex items-center justify-between px-6 md:px-10 py-5 text-[10px] tracking-[0.3em] text-[#010B13]/45 fg-head" data-kid="146">
+    <span data-kid="147">© 2026 VOID — GLACIAL TECH</span>
+    <span data-kid="148">MINIMALISM, AN INSTALLATION</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" data-kid="149"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" data-kid="150"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/SplitText.min.js" data-kid="151"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/Draggable.min.js" data-kid="152"></script>
+<script type="module" data-kid="153">
+  import Lenis from "https://esm.sh/lenis@1";
+
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  gsap.registerPlugin(ScrollTrigger, SplitText, Draggable);
+
+  /* ---------- smooth scroll bridge ---------- */
+  let spScroll = 0;
+  let lenis = null;
+  if(!reduce){
+    lenis = new Lenis({ lerp:0.08, smoothWheel:true });
+    lenis.on('scroll', (e)=>{ ScrollTrigger.update(); spScroll = e.scroll; });
+    gsap.ticker.add((t)=>lenis.raf(t*1000));
+    gsap.ticker.lagSmoothing(0);
+  } else {
+    addEventListener('scroll', ()=>{ spScroll = window.scrollY; }, {passive:true});
+  }
+
+  /* ---------- scroll progress ---------- */
+  gsap.to('#progress', { scaleX:1, ease:'none', scrollTrigger:{ trigger:document.body, start:'top top', end:'bottom bottom', scrub:0.3 } });
+
+  /* ---------- hero reveal ---------- */
+  document.fonts.ready.then(()=>{
+    const tl = gsap.timeline({ delay:0.25 });
+    tl.from('#hero-pane', { autoAlpha:0, filter:'blur(12px)', y:34, duration:1.05, ease:'power3.out' });
+    const split = new SplitText('#hero-line', { type:'words' });
+    tl.from(split.words, { autoAlpha:0, filter:'blur(10px)', y:18, stagger:0.045, duration:0.7, ease:'power2.out' }, '-=0.5');
+    tl.from('#hero-meta > *', { autoAlpha:0, y:10, stagger:0.12, duration:0.5 }, '-=0.3');
+    if(!reduce){
+      gsap.to('#watermark', { y:-24, duration:7, ease:'sine.inOut', yoyo:true, repeat:-1 });
+      gsap.to('#hero-pane', { y:'+=14', duration:5, ease:'sine.inOut', yoyo:true, repeat:-1, delay:1.3 });
+    }
+  });
+
+  /* ---------- generic reveals ---------- */
+  gsap.utils.toArray('[data-reveal]').forEach((el)=>{
+    gsap.from(el, { autoAlpha:0, y:42, filter:'blur(8px)', duration:0.95, ease:'power2.out',
+      scrollTrigger:{ trigger:el, start:'top 82%' } });
+  });
+
+  /* ---------- feature parallax depth ---------- */
+  gsap.utils.toArray('[data-depth]').forEach((el)=>{
+    const d = parseFloat(el.dataset.depth);
+    gsap.to(el, { y:d, ease:'none', scrollTrigger:{ trigger:'#features', start:'top bottom', end:'bottom top', scrub:true } });
+  });
+
+  /* ---------- showcase draggable divider ---------- */
+  const wrap = document.getElementById('ba-wrap');
+  const divider = document.getElementById('ba-divider');
+  const wire = document.getElementById('ba-wire');
+  function applySplit(){
+    const r = wrap.getBoundingClientRect();
+    const d = divider.getBoundingClientRect();
+    const cx = d.left + d.width/2 - r.left;
+    let pct = Math.max(0.03, Math.min(0.97, cx / r.width));
+    wire.style.clipPath = `inset(0 ${(1-pct)*100}% 0 0)`;
+  }
+  Draggable.create(divider, {
+    type:'x',
+    bounds: wrap,
+    edgeResistance:0.9,
+    onDrag: applySplit,
+    onThrowUpdate: applySplit
+  });
+  window.addEventListener('resize', applySplit);
+
+  /* ---------- sonogram waveform ---------- */
+  const wave = document.getElementById('wave');
+  const N = 48;
+  for(let i=0;i<N;i++){
+    const t = i/(N-1);
+    const env = Math.sin(t*Math.PI);
+    const detail = 0.45 + 0.55*Math.abs(Math.sin(t*23)*Math.cos(t*6.5));
+    const h = Math.max(0.08, Math.min(1, 0.12 + env*0.9*detail));
+    const bar = document.createElement('div');
+    bar.className = 'wbar';
+    bar.style.height = (h*100)+'%';
+    bar.style.flex = '1 1 0';
+    bar.style.maxWidth = '7px';
+    bar.style.background = (i%4===0) ? 'var(--blue)' : 'rgba(248,248,255,0.78)';
+    bar.style.transform = 'scaleY(0)';
+    wave.appendChild(bar);
+  }
+  gsap.to('.wbar', { scaleY:1, ease:'none', stagger:{ from:'center', amount:0.35 },
+    scrollTrigger:{ trigger:'#story', start:'top 78%', end:'center 52%', scrub:true } });
+
+  /* ---------- CTA spotlight + magnetic button ---------- */
+  const cta = document.getElementById('cta');
+  const ctaBtn = document.getElementById('cta-btn');
+  const ctaGlow = document.getElementById('cta-glow');
+  if(!reduce){
+    gsap.set(ctaGlow, { x: innerWidth/2-310, y: 360 });
+    cta.addEventListener('pointermove', (e)=>{
+      const r = cta.getBoundingClientRect();
+      const x = e.clientX - r.left, y = e.clientY - r.top;
+      cta.style.setProperty('--mx', x+'px');
+      cta.style.setProperty('--my', y+'px');
+      gsap.to(ctaGlow, { x:x-310, y:y-310, duration:0.5, ease:'power2.out' });
+      const b = ctaBtn.getBoundingClientRect();
+      const dx = e.clientX - (b.left+b.width/2);
+      const dy = e.clientY - (b.top+b.height/2);
+      if(Math.hypot(dx,dy) < 220) gsap.to(ctaBtn, { x:dx*0.28, y:dy*0.28, duration:0.4, ease:'power3.out' });
+      else gsap.to(ctaBtn, { x:0, y:0, duration:0.5, ease:'power3.out' });
+    });
+    cta.addEventListener('pointerleave', ()=> gsap.to(ctaBtn, { x:0, y:0, duration:0.5, ease:'power3.out' }));
+    ctaBtn.addEventListener('focus', ()=> cta.classList.add('reveal-all'));
+    ctaBtn.addEventListener('blur', ()=> cta.classList.remove('reveal-all'));
+  } else {
+    cta.classList.add('reveal-all');
+  }
+
+  /* ---------- floating glass spores ---------- */
+  const canvas = document.getElementById('spores');
+  const ctx = canvas.getContext('2d');
+  let W=0, H=0, DPR=1;
+  function resize(){
+    DPR = Math.min(devicePixelRatio||1, 2);
+    W = innerWidth; H = innerHeight;
+    canvas.width = W*DPR; canvas.height = H*DPR;
+    canvas.style.width = W+'px'; canvas.style.height = H+'px';
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+  }
+  resize();
+  addEventListener('resize', resize);
+
+  const COUNT = Math.min(130, Math.floor((innerWidth*innerHeight)/13000));
+  const motes = [];
+  for(let i=0;i<COUNT;i++){
+    const layer = Math.floor(Math.random()*3);
+    const depth = (layer+1)/3;
+    motes.push({
+      x: Math.random()*W, y: Math.random()*H,
+      r: (0.7 + Math.random()*1.6) * (0.6 + depth*1.2),
+      a: (0.05 + Math.random()*0.17) * (0.55 + depth*0.7),
+      blue: Math.random() < 0.45,
+      px: Math.sin(Math.random()*6.28), py: Math.cos(Math.random()*6.28),
+      sp: 0.0006 + Math.random()*0.0011,
+      amp: 0.18 + Math.random()*0.5,
+      depth, par: 0.05 + depth*0.18,
+      vy: (0.04 + Math.random()*0.12) * depth
+    });
+  }
+  function draw(time){
+    ctx.clearRect(0,0,W,H);
+    for(const m of motes){
+      m.px += m.sp; m.py += m.sp*0.85;
+      m.x += Math.sin(m.px)*m.amp*m.depth*0.6;
+      m.y += Math.cos(m.py)*m.amp*m.depth*0.5 - m.vy*0.3;
+      if(m.x < -24) m.x = W+24; if(m.x > W+24) m.x = -24;
+      if(m.y < -24) m.y = H+24; if(m.y > H+24) m.y = -24;
+      const ry = (((m.y - spScroll*m.par) % (H+48)) + (H+48)) % (H+48) - 24;
+      const col = m.blue ? '0,112,255' : '210,228,255';
+      const g = ctx.createRadialGradient(m.x, ry, 0, m.x, ry, m.r*4.2);
+      g.addColorStop(0, `rgba(${col},${m.a})`);
+      g.addColorStop(1, `rgba(${col},0)`);
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.arc(m.x, ry, m.r*4.2, 0, 6.2832); ctx.fill();
+      ctx.fillStyle = `rgba(${col},${Math.min(0.55, m.a*2.1)})`;
+      ctx.beginPath(); ctx.arc(m.x, ry, m.r*0.6, 0, 6.2832); ctx.fill();
+    }
+  }
+  let rafId;
+  function loop(t){
+    if(document.hidden){ rafId = requestAnimationFrame(loop); return; }
+    draw(t); rafId = requestAnimationFrame(loop);
+  }
+  if(reduce){ draw(0); } else { loop(0); }
+</script></div>
+  
+  
+</body></html>

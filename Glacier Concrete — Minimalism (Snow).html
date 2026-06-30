@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta name="kombai-design-canvas" content="true">
+  <base href="http://localhost:19581/">
+  
+  
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  
+  <style>html, body { margin: 0; padding: 0; } #root { display: contents; }</style>
+</head><body>
+  <div id="root"><style data-kid="0">
+  @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Forum&display=swap');
+
+  body { background:#111111; color:#E5E4E2; font-family:'Archivo',sans-serif; -webkit-font-smoothing:antialiased; }
+  .font-archivo{ font-family:'Archivo',sans-serif; }
+  .font-forum{ font-family:'Forum',serif; }
+  .fw9{font-weight:900;} .fw8{font-weight:800;} .fw7{font-weight:700;} .fw6{font-weight:600;} .fw5{font-weight:500;}
+
+  .tenet{ background:#E5E4E2; border:2px solid #111111;
+    box-shadow:8px 8px 18px rgba(0,0,0,0.10),-8px -8px 18px rgba(255,255,255,0.9); }
+
+  .deboss-light{ color:#E5E4E2; text-shadow:-1px -1px 1px rgba(255,255,255,0.9), 2px 2px 3px rgba(0,0,0,0.22); }
+  .deboss-concrete{ color:#cfcdca; text-shadow:-2px -2px 2px rgba(0,0,0,0.78), 2px 2px 2px rgba(255,255,255,0.14); }
+
+  .grid-lines{ background-image:linear-gradient(rgba(229,228,226,0.9) 1px,transparent 1px),linear-gradient(90deg,rgba(229,228,226,0.9) 1px,transparent 1px); background-size:46px 46px; }
+
+  .slab-piece{ background-image:url('https://images.unsplash.com/photo-1557838258-c5854ee2eee7?auto=format&w=1400&q=80&fit=crop'); background-repeat:no-repeat; filter:grayscale(1) contrast(1.05); }
+
+  :focus-visible{ outline:2px solid #708090; outline-offset:3px; }
+  ::selection{ background:#708090; color:#111; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+  }
+</style>
+
+
+<canvas id="snow" class="fixed inset-0 z-[60] pointer-events-none" aria-hidden="true" data-kid="1"></canvas>
+
+
+<header class="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-6 md:px-10 py-5 mix-blend-difference text-[#E5E4E2]" data-kid="2">
+  <span class="fw8 text-sm tracking-[0.35em]" data-kid="3">MINIMUM<span class="text-[#708090]" data-kid="4">.</span></span>
+  <span class="hidden sm:block font-forum text-sm tracking-wide opacity-70" data-kid="5">Glacier&nbsp;Concrete</span>
+</header>
+
+<main class="relative z-10" data-kid="6">
+
+  
+  <section id="hero" class="relative min-h-screen w-full overflow-hidden bg-[#111111] flex items-center justify-center" aria-label="Hero — MINIMUM" data-kid="7">
+    
+    <video class="absolute inset-0 w-full h-full object-cover opacity-30" autoplay muted loop playsinline preload="metadata" poster="https://images.pexels.com/videos/19886712/close-up-snow-falling-snow-falling-snow-video-slomo-video-19886712.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80" aria-hidden="true" data-kid="8">
+      <source src="https://videos.pexels.com/video-files/19886712/19886712-hd_1280_720_24fps.mp4" type="video/mp4" data-kid="9">
+    </video>
+    <div class="absolute inset-0 bg-[#111111]/55" aria-hidden="true" data-kid="10"></div>
+
+    
+    <div class="pointer-events-none absolute -top-[12%] left-1/2 -translate-x-[58%] w-[62vw] h-[125vh]" aria-hidden="true" style="background:conic-gradient(from 180deg at 50% 0,rgba(255,255,255,0) 42%,rgba(229,228,226,0.16) 50%,rgba(255,255,255,0) 58%);filter:blur(8px);" data-kid="11"></div>
+    <div class="pointer-events-none absolute left-1/2 top-[60%] -translate-x-[58%] -translate-y-1/2 w-[46vw] h-[46vw] rounded-full" aria-hidden="true" style="background:radial-gradient(circle,rgba(229,228,226,0.20) 0%,rgba(229,228,226,0.04) 42%,transparent 70%);filter:blur(34px);" data-kid="12"></div>
+
+    
+    <div class="absolute top-24 left-6 md:left-14 z-20" data-kid="13">
+      <p class="text-[11px] tracking-[0.45em] text-[#708090] fw6 uppercase" data-kid="14">A Study in Subtraction</p>
+      <div class="mt-3 h-px w-16 bg-[#708090]/50" data-kid="15"></div>
+    </div>
+    <div class="absolute top-24 right-6 md:right-14 z-20 text-right hidden sm:block" data-kid="16">
+      <p class="text-[11px] tracking-[0.4em] text-[#708090]/80 uppercase" data-kid="17">Exhibit 01 / VI</p>
+    </div>
+
+    
+    <div id="slab-float" class="relative z-20 will-change-transform" style="perspective:1500px;" data-kid="18">
+      <div class="relative mx-auto w-[90vw] max-w-[1180px]" style="transform:rotateX(13deg);transform-style:preserve-3d;" data-kid="19">
+        <div class="relative overflow-hidden border-2 border-black" style="box-shadow:0 60px 110px -24px rgba(0,0,0,0.92),inset 6px 6px 22px rgba(0,0,0,0.55),inset -6px -6px 22px rgba(255,255,255,0.06);" data-kid="20">
+          <img src="https://images.unsplash.com/photo-1678794792858-1d3a7b2a0367?auto=format&w=1600&q=80&fit=crop" alt="Macro stippled concrete texture" decoding="async" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-90" data-kid="21">
+          <div class="absolute inset-0" style="background:radial-gradient(ellipse at 44% 28%,rgba(229,228,226,0.30),transparent 62%);" aria-hidden="true" data-kid="22"></div>
+          <div class="relative px-5 py-12 md:py-16 flex items-center justify-center" data-kid="23">
+            <h1 id="hero-title" class="fw9 leading-[0.8] tracking-[-0.045em] text-[19vw] md:text-[15vw] deboss-concrete select-none" data-kid="24">MINIMUM</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="absolute bottom-24 left-6 md:left-14 z-20 max-w-xs" data-kid="25">
+      <p class="font-forum text-[#E5E4E2]/75 text-lg leading-relaxed" data-kid="26">An installation where everything unnecessary has already been removed.</p>
+    </div>
+
+    
+    <div class="absolute bottom-8 left-6 md:left-14 z-20 flex items-center gap-3" data-kid="27">
+      <span class="text-[10px] tracking-[0.4em] text-[#708090] uppercase" data-kid="28">Scroll</span>
+      <span id="scroll-line" class="block h-10 w-px bg-gradient-to-b from-[#708090] to-transparent" data-kid="29"></span>
+    </div>
+  </section>
+
+  
+  <section id="showcase" class="relative w-full md:min-h-screen flex flex-col md:flex-row bg-[#E5E4E2]" aria-label="Interactive showcase" data-kid="30">
+    
+    <div class="relative w-full md:w-[38%] bg-[#111111] flex flex-col justify-between p-8 md:p-10 overflow-hidden min-h-[60vh] md:min-h-0" data-kid="31">
+      <div class="absolute inset-0 grid-lines opacity-[0.06]" aria-hidden="true" data-kid="32"></div>
+      <div class="relative z-10" data-kid="33">
+        <p class="text-[10px] tracking-[0.45em] text-[#708090] uppercase" data-kid="34">Mechanism 02</p>
+        <h2 class="fw8 text-2xl md:text-3xl tracking-tight text-[#E5E4E2] mt-2" data-kid="35">DIM THE GALLERY</h2>
+      </div>
+
+      
+      <div class="relative z-10 mx-auto my-10 md:my-0 flex flex-col items-center" data-kid="36">
+        <span class="text-[9px] tracking-[0.4em] text-[#708090] uppercase mb-3" data-kid="37">Drag Down</span>
+        <div id="lever-track" class="relative w-24 h-72 rounded-[14px] border-2 border-black bg-[#171717]" style="box-shadow:inset 0 0 34px rgba(0,0,0,0.85),0 22px 44px rgba(0,0,0,0.6);" data-kid="38">
+          <div class="absolute inset-x-0 top-4 bottom-4 mx-auto w-3 rounded-full bg-black/70" style="box-shadow:inset 0 0 6px rgba(0,0,0,0.9);" aria-hidden="true" data-kid="39"></div>
+          
+          <div id="lever" role="slider" tabindex="0" aria-label="Lever — drag down to dim the gallery" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" class="absolute left-1/2 top-2 -translate-x-1/2 w-20 h-24 rounded-[12px] border-2 border-black overflow-hidden cursor-grab active:cursor-grabbing will-change-transform" style="box-shadow:0 18px 28px rgba(0,0,0,0.72),0 5px 9px rgba(0,0,0,0.55);" data-kid="40">
+            <img src="https://images.unsplash.com/photo-1602223114290-ba6de2938acc?auto=format&w=1200&q=80&fit=crop" alt="Brushed steel mechanical lever handle" decoding="async" loading="lazy" class="absolute inset-0 w-full h-full object-cover scale-[1.6]" data-kid="41">
+            <span class="absolute inset-0" style="background:linear-gradient(180deg,rgba(255,255,255,0.55),rgba(255,255,255,0.04) 18%,rgba(0,0,0,0.38) 50%,rgba(255,255,255,0.12) 82%,rgba(0,0,0,0.55));" aria-hidden="true" data-kid="42"></span>
+            <span class="absolute inset-0 mix-blend-overlay" style="background:repeating-linear-gradient(0deg,rgba(255,255,255,0.4) 0px,rgba(255,255,255,0.4) 1px,rgba(0,0,0,0.4) 2px,rgba(0,0,0,0) 5px);" aria-hidden="true" data-kid="43"></span>
+            <span class="absolute inset-0" style="background:linear-gradient(90deg,rgba(0,0,0,0.5),transparent 22%,transparent 78%,rgba(0,0,0,0.5));" aria-hidden="true" data-kid="44"></span>
+            <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full" style="background:radial-gradient(circle at 38% 32%,rgba(255,255,255,0.55),rgba(0,0,0,0.28));box-shadow:inset 0 1px 2px rgba(255,255,255,0.5),inset 0 -3px 5px rgba(0,0,0,0.55),0 1px 2px rgba(0,0,0,0.45);" aria-hidden="true" data-kid="45"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative z-10" data-kid="46">
+        <p class="font-forum text-[#E5E4E2]/65 text-base leading-relaxed max-w-[15rem]" data-kid="47">Pull the lever. Subtract the light. Watch what stays.</p>
+      </div>
+    </div>
+
+    
+    <div class="relative w-full md:w-[62%] bg-[#E5E4E2] flex items-center min-h-[70vh] md:min-h-0" data-kid="48">
+      
+      <div id="dimmer" class="absolute inset-0 md:-left-28 z-20 bg-[#0c0c0c] pointer-events-none will-change-[opacity]" style="opacity:0;" data-kid="49"></div>
+      
+      <div id="reveal-line" class="absolute inset-0 z-30 flex flex-col items-center justify-center text-center px-6 pointer-events-none will-change-transform" style="opacity:0;" data-kid="50">
+        <p class="text-[10px] tracking-[0.5em] text-[#708090] uppercase mb-4" data-kid="51">In the dark</p>
+        <p class="fw8 text-3xl md:text-5xl tracking-tight text-[#E5E4E2] leading-[1.05]" data-kid="52">ONLY ESSENCE<br data-kid="53">REMAINS</p>
+      </div>
+
+      
+      <div id="showcase-card" class="relative z-10 md:-ml-24 mx-6 md:mx-0 my-12 md:my-0 w-auto md:w-[440px] border-2 border-black bg-[#E5E4E2] p-7 md:p-8" style="box-shadow:20px 20px 44px rgba(0,0,0,0.20),-8px -8px 18px rgba(255,255,255,0.9);" data-kid="54">
+        <img src="https://images.unsplash.com/photo-1573345173719-5fbd4783d3c8?auto=format&w=1400&q=80&fit=crop" alt="Smooth concrete surface" decoding="async" loading="lazy" class="w-full h-44 object-cover border border-black/20 mb-6" data-kid="55">
+        <p class="text-[10px] tracking-[0.45em] text-[#708090] uppercase" data-kid="56">The Reveal</p>
+        <h3 class="fw8 text-3xl tracking-tight text-[#111] mt-2" data-kid="57">LESS IS THE ANSWER</h3>
+        <p class="font-forum text-[#111]/60 mt-3 leading-relaxed" data-kid="58">A single gesture removes the noise — and the message beneath it surfaces.</p>
+      </div>
+
+      <div class="hidden lg:block ml-auto pr-16 max-w-sm relative z-10" data-kid="59">
+        <p class="font-forum text-2xl text-[#111]/40 leading-snug" data-kid="60">When the light fades, only essence is left standing.</p>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="tenets" class="w-full bg-[#E5E4E2] px-6 md:px-16 py-24 md:py-32" aria-label="The six tenets of minimalism" data-kid="61">
+    <div class="reveal-head flex flex-col md:flex-row md:items-end md:justify-between mb-16 border-b-2 border-black pb-6 gap-6" data-kid="62">
+      <div data-kid="63">
+        <p class="text-[11px] tracking-[0.45em] text-[#708090] uppercase" data-kid="64">Six Tenets</p>
+        <h2 class="fw9 text-5xl md:text-7xl tracking-[-0.035em] text-[#111] mt-3 leading-[0.9]" data-kid="65">THE GRAMMAR<br data-kid="66">OF LESS</h2>
+      </div>
+      <p class="font-forum text-[#111]/55 max-w-xs md:text-right text-lg" data-kid="67">Each principle is a removal — never an addition.</p>
+    </div>
+
+    <div class="columns-1 md:columns-3 gap-8 space-y-8" data-kid="68">
+      <article class="tenet-card tenet break-inside-avoid p-8 h-64 flex flex-col justify-between will-change-transform" data-kid="69">
+        <span class="fw9 text-7xl text-[#708090]/40 leading-none" data-kid="70">01</span>
+        <div data-kid="71"><h3 class="fw8 text-3xl tracking-tight text-[#111]" data-kid="72">SUBTRACT</h3><p class="font-forum text-[#111]/55 mt-2 leading-relaxed" data-kid="73">Take away until it breaks. Then add one thing back.</p></div>
+      </article>
+      <article class="tenet-card tenet break-inside-avoid p-8 h-80 flex flex-col justify-between will-change-transform" data-kid="74">
+        <span class="fw9 text-7xl text-[#708090]/40 leading-none" data-kid="75">02</span>
+        <div data-kid="76"><h3 class="fw8 text-3xl tracking-tight text-[#111]" data-kid="77">SILENCE</h3><p class="font-forum text-[#111]/55 mt-2 leading-relaxed" data-kid="78">The space between the notes is the music.</p></div>
+      </article>
+      <article class="tenet-card tenet break-inside-avoid p-8 h-52 flex flex-col justify-between will-change-transform" data-kid="79">
+        <span class="fw9 text-7xl text-[#708090]/40 leading-none" data-kid="80">03</span>
+        <div data-kid="81"><h3 class="fw8 text-3xl tracking-tight text-[#111]" data-kid="82">SPACE</h3><p class="font-forum text-[#111]/55 mt-2 leading-relaxed" data-kid="83">Emptiness is a material like any other.</p></div>
+      </article>
+      <article class="tenet-card tenet break-inside-avoid p-8 h-56 flex flex-col justify-between will-change-transform" data-kid="84">
+        <span class="fw9 text-7xl text-[#708090]/40 leading-none" data-kid="85">04</span>
+        <div data-kid="86"><h3 class="fw8 text-3xl tracking-tight text-[#111]" data-kid="87">WEIGHT</h3><p class="font-forum text-[#111]/55 mt-2 leading-relaxed" data-kid="88">Mass earns its place only by meaning.</p></div>
+      </article>
+      <article class="tenet-card tenet break-inside-avoid p-8 h-72 flex flex-col justify-between will-change-transform" data-kid="89">
+        <span class="fw9 text-7xl text-[#708090]/40 leading-none" data-kid="90">05</span>
+        <div data-kid="91"><h3 class="fw8 text-3xl tracking-tight text-[#111]" data-kid="92">LIGHT</h3><p class="font-forum text-[#111]/55 mt-2 leading-relaxed" data-kid="93">Shadow defines the form that light forgets.</p></div>
+      </article>
+      <article class="tenet-card tenet break-inside-avoid p-8 h-60 flex flex-col justify-between will-change-transform" data-kid="94">
+        <span class="fw9 text-7xl text-[#708090]/40 leading-none" data-kid="95">06</span>
+        <div data-kid="96"><h3 class="fw8 text-3xl tracking-tight text-[#111]" data-kid="97">ESSENCE</h3><p class="font-forum text-[#111]/55 mt-2 leading-relaxed" data-kid="98">What remains when nothing else can leave.</p></div>
+      </article>
+    </div>
+  </section>
+
+  
+  <section id="story" class="relative w-full bg-[#111111]" aria-label="Scroll story — fragmentation" data-kid="99">
+    <div id="story-pin" class="relative h-screen w-full overflow-hidden flex items-center justify-center" data-kid="100">
+      <div class="absolute inset-0 grid-lines opacity-[0.04]" aria-hidden="true" data-kid="101"></div>
+      <div class="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] rounded-full" aria-hidden="true" style="background:radial-gradient(circle,rgba(229,228,226,0.10),transparent 65%);filter:blur(40px);" data-kid="102"></div>
+
+      <p class="absolute top-12 left-6 md:left-14 text-[11px] tracking-[0.45em] text-[#708090] uppercase z-20" data-kid="103">The Fragmentation</p>
+
+      
+      <div class="relative scale-[0.78] sm:scale-90 md:scale-100" style="perspective:1400px;" data-kid="104">
+        <div id="monolith-group" class="relative will-change-transform" style="width:360px;height:520px;transform-style:preserve-3d;" data-kid="105">
+          <div id="slab-1" class="slab-piece absolute top-0 left-0 will-change-transform" style="width:120px;height:520px;background-size:360px 520px;background-position:0 0;clip-path:polygon(0 16%,16% 0,100% 0,100% 100%,0 100%);box-shadow:0 30px 60px rgba(0,0,0,0.6);" data-kid="106"></div>
+          <div id="slab-2" class="slab-piece absolute top-0 left-[120px] will-change-transform" style="width:120px;height:520px;background-size:360px 520px;background-position:-120px 0;box-shadow:0 30px 60px rgba(0,0,0,0.6);" data-kid="107"></div>
+          <div id="slab-3" class="slab-piece absolute top-0 left-[240px] will-change-transform" style="width:120px;height:520px;background-size:360px 520px;background-position:-240px 0;clip-path:polygon(0 0,100% 0,100% 84%,84% 100%,0 100%);box-shadow:0 30px 60px rgba(0,0,0,0.6);" data-kid="108"></div>
+        </div>
+      </div>
+
+      
+      <div class="absolute inset-0 z-30 flex items-center justify-center pointer-events-none px-6" data-kid="109">
+        <p id="phrase-1" class="story-phrase font-forum text-center text-3xl md:text-5xl leading-[1.15] text-[#E5E4E2] max-w-3xl will-change-transform" data-kid="110">Remove until only meaning remains.</p>
+        <p id="phrase-2" class="story-phrase absolute font-forum text-center text-3xl md:text-5xl leading-[1.15] text-[#E5E4E2] max-w-3xl will-change-transform" data-kid="111">Silence is the loudest material.</p>
+        <p id="phrase-3" class="story-phrase absolute font-forum text-center text-3xl md:text-5xl leading-[1.15] text-[#E5E4E2] max-w-3xl will-change-transform" data-kid="112">What is left, is essence.</p>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="cta" class="relative w-full bg-[#E5E4E2] py-32 md:py-44 overflow-hidden" aria-label="Begin" data-kid="113">
+    <p class="absolute top-14 left-6 md:left-16 text-[11px] tracking-[0.45em] text-[#708090] uppercase z-10" data-kid="114">The Invitation</p>
+
+    <h2 id="subtract-word" class="text-center fw9 text-[26vw] md:text-[22vw] leading-none tracking-[-0.04em] deboss-light select-none will-change-transform" data-kid="115">SUBTRACT</h2>
+
+    <p class="absolute bottom-16 left-6 md:left-16 font-forum text-[#111]/55 max-w-xs text-lg z-10" data-kid="116">One action. Nothing more is required of you.</p>
+
+    
+    <div id="begin-zone" class="absolute bottom-16 right-6 md:right-20 z-20" style="padding:40px;" data-kid="117">
+      <button id="begin-btn" type="button" aria-label="Begin" class="relative block w-40 h-40 md:w-48 md:h-48 rounded-full border-2 border-black overflow-hidden will-change-transform cursor-pointer" data-kid="118">
+        <img src="https://images.unsplash.com/photo-1602223114290-ba6de2938acc?auto=format&w=1200&q=80&fit=crop" alt decoding="async" loading="lazy" class="absolute inset-0 w-full h-full object-cover" data-kid="119">
+        <span class="absolute inset-0" style="background:radial-gradient(circle at 38% 30%,rgba(255,255,255,0.5),transparent 55%),linear-gradient(135deg,rgba(255,255,255,0.2),rgba(0,0,0,0.45));" aria-hidden="true" data-kid="120"></span>
+        <span class="absolute inset-[6px] rounded-full border border-white/25" aria-hidden="true" style="box-shadow:inset 0 3px 6px rgba(255,255,255,0.45),inset 0 -10px 18px rgba(0,0,0,0.55);" data-kid="121"></span>
+        <span class="relative z-10 flex items-center justify-center w-full h-full fw7 text-xl tracking-[0.22em] text-[#0d0d0d] uppercase" style="text-shadow:0 1px 1px rgba(255,255,255,0.6);" data-kid="122">Begin</span>
+      </button>
+    </div>
+  </section>
+
+  
+  <footer class="relative w-full min-h-[78vh] bg-[#E5E4E2] flex items-end border-t-2 border-black" aria-label="Footer" data-kid="123">
+    <div class="p-10 md:p-16 w-full" data-kid="124">
+      <div class="fw9 text-6xl md:text-8xl tracking-[-0.045em] text-[#111] leading-none" data-kid="125">MINIMUM</div>
+      <div class="mt-10 flex flex-wrap items-end gap-x-14 gap-y-5" data-kid="126">
+        <p class="text-[11px] tracking-[0.35em] text-[#708090] uppercase" data-kid="127">© 2026 Glacier Concrete</p>
+        <p class="text-[11px] tracking-[0.35em] text-[#708090] uppercase" data-kid="128">64.1466° N, 21.9426° W</p>
+        <a href="#hero" class="group text-[11px] tracking-[0.35em] text-[#111] uppercase border-b-2 border-black pb-1 transition-colors hover:text-[#708090] hover:border-[#708090]" data-kid="129">Enter the Archive&nbsp;→</a>
+      </div>
+    </div>
+  </footer>
+</main>
+
+
+<link rel="stylesheet" href="https://unpkg.com/lenis@1/dist/lenis.css" data-kid="130">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" data-kid="131"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" data-kid="132"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/SplitText.min.js" data-kid="133"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/Draggable.min.js" data-kid="134"></script>
+
+<script type="module" data-kid="135">
+  import Lenis from "https://esm.sh/lenis@1";
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  gsap.registerPlugin(ScrollTrigger, SplitText, Draggable);
+
+  /* ---------- smooth scroll bridge ---------- */
+  let scrollVel = 0;
+  const lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
+  lenis.on('scroll', (e) => { ScrollTrigger.update(); scrollVel = e.velocity || 0; });
+  gsap.ticker.add((t) => lenis.raf(t * 1000));
+  gsap.ticker.lagSmoothing(0);
+
+  /* ---------- realistic falling snow ---------- */
+  (function snow(){
+    const canvas = document.getElementById('snow');
+    const ctx = canvas.getContext('2d');
+    let w, h, dpr;
+    function resize(){
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = window.innerWidth; h = window.innerHeight;
+      canvas.width = w * dpr; canvas.height = h * dpr;
+      canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    const rand = (a, b) => a + Math.random() * (b - a);
+    const layers = [
+      { count: 60, r:[0.5,1.1], v:[0.12,0.35], a:0.22, wind:0.6, near:false },
+      { count: 50, r:[1.1,2.0], v:[0.35,0.7],  a:0.42, wind:0.9, near:false },
+      { count: 30, r:[2.0,3.2], v:[0.7,1.2],   a:0.7,  wind:1.2, near:true  },
+    ];
+    const flakes = [];
+    layers.forEach((L, li) => {
+      for (let i=0;i<L.count;i++){
+        flakes.push({
+          x: Math.random()*w, y: Math.random()*h,
+          r: rand(L.r[0],L.r[1]), vy: rand(L.v[0],L.v[1]),
+          a: L.a*rand(0.7,1), freq: rand(0.0006,0.0016), phase: Math.random()*Math.PI*2,
+          amp: rand(8,22)*L.wind, layer: li, near: L.near
+        });
+      }
+    });
+
+    if (reduced){ // sparse static field
+      ctx.clearRect(0,0,w,h);
+      flakes.slice(0,40).forEach(f=>{
+        ctx.globalAlpha=f.a; ctx.fillStyle = f.near?'rgba(229,228,226,1)':'rgba(112,128,144,1)';
+        ctx.beginPath(); ctx.arc(f.x,f.y,f.r,0,Math.PI*2); ctx.fill();
+      });
+      ctx.globalAlpha=1; return;
+    }
+
+    function draw(t){
+      if (document.hidden){ requestAnimationFrame(draw); return; }
+      scrollVel *= 0.92;
+      ctx.clearRect(0,0,w,h);
+      const par = gsap.utils.clamp(-26,26, scrollVel*0.06);
+      for (const f of flakes){
+        f.y += f.vy + par*(f.layer*0.45+0.4);
+        const drawX = f.x + Math.sin(t*f.freq + f.phase)*f.amp;
+        if (f.y > h+6){ f.y = -6; f.x = Math.random()*w; }
+        if (f.y < -12){ f.y = h+6; }
+        let dx = drawX; if (dx < -8) dx += w+16; if (dx > w+8) dx -= w+16;
+        ctx.globalAlpha = f.a;
+        ctx.fillStyle = f.near ? 'rgba(232,231,229,1)' : 'rgba(132,146,160,0.9)';
+        ctx.beginPath(); ctx.arc(dx, f.y, f.r, 0, Math.PI*2); ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+      requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
+  })();
+
+  /* ---------- main animations ---------- */
+  document.fonts.ready.then(() => {
+
+    /* HERO — split char mask reveal */
+    const split = new SplitText('#hero-title', { type:'chars', mask:'chars' });
+    const intro = gsap.timeline();
+    intro.from(split.chars, { yPercent:120, duration:1.1, ease:'power4.out', stagger:0.045, delay:0.2 });
+
+    if (!reduced){
+      gsap.to('#slab-float', { y:-14, duration:4.5, repeat:-1, yoyo:true, ease:'sine.inOut' });
+      gsap.to('#scroll-line', { scaleY:0.4, transformOrigin:'top', duration:1.4, repeat:-1, yoyo:true, ease:'sine.inOut' });
+      // hero scroll parallax (eyebrow + subline drift)
+      gsap.to('#hero h1', { yPercent:-6, ease:'none',
+        scrollTrigger:{ trigger:'#hero', start:'top top', end:'bottom top', scrub:true } });
+    }
+
+    /* SHOWCASE — reveal + drag-to-dim */
+    gsap.from('#showcase-card', { autoAlpha:0, y:60, duration:1, ease:'power3.out',
+      scrollTrigger:{ trigger:'#showcase', start:'top 75%' } });
+
+    const lever = document.getElementById('lever');
+    function applyDim(p){
+      gsap.set('#dimmer', { opacity: p*0.94 });
+      gsap.set('#reveal-line', { opacity: gsap.utils.clamp(0,1,(p-0.35)/0.55), y:(1-p)*24 });
+      lever.setAttribute('aria-valuenow', Math.round(p*100));
+    }
+    Draggable.create(lever, {
+      type:'y', bounds:'#lever-track', edgeResistance:0.6, inertia:false,
+      onDrag(){ applyDim(this.maxY ? gsap.utils.clamp(0,1,this.y/this.maxY) : 0); },
+      onThrowUpdate(){ applyDim(this.maxY ? gsap.utils.clamp(0,1,this.y/this.maxY) : 0); }
+    });
+
+    /* TENETS — stagger reveal + hover lift */
+    gsap.from('.reveal-head', { autoAlpha:0, y:40, duration:0.9, ease:'power3.out',
+      scrollTrigger:{ trigger:'#tenets', start:'top 80%' } });
+    gsap.from('.tenet-card', { autoAlpha:0, y:70, duration:0.9, ease:'power3.out', stagger:0.12,
+      scrollTrigger:{ trigger:'.columns-1', start:'top 82%' } });
+    if (!reduced){
+      document.querySelectorAll('.tenet-card').forEach(card=>{
+        card.addEventListener('mouseenter', ()=> gsap.to(card,{ y:-8, scale:1.015, duration:0.4, ease:'power3.out' }));
+        card.addEventListener('mouseleave', ()=> gsap.to(card,{ y:0, scale:1, duration:0.5, ease:'power3.out' }));
+      });
+    }
+
+    /* SCROLL STORY — pinned fragmentation + phrases */
+    gsap.set(['#phrase-2','#phrase-3'], { autoAlpha:0 });
+    gsap.set('#phrase-1', { autoAlpha:0 });
+    const story = gsap.timeline({
+      scrollTrigger:{ trigger:'#story', start:'top top', end:'+=300%', scrub:1, pin:'#story-pin', anticipatePin:1 }
+    });
+    story
+      .to('#monolith-group', { rotation:7, duration:10, ease:'none' }, 0)
+      .to('#slab-1', { x:-270, y:-30, rotation:-13, duration:10, ease:'none' }, 0)
+      .to('#slab-3', { x:270, y:36, rotation:13, duration:10, ease:'none' }, 0)
+      .to('#slab-2', { y:30, scale:1.05, duration:10, ease:'none' }, 0)
+      .fromTo('#phrase-1', { autoAlpha:0, y:40 }, { autoAlpha:1, y:0, duration:1.4 }, 0.6)
+      .to('#phrase-1', { autoAlpha:0, y:-40, duration:1.4 }, 3.2)
+      .fromTo('#phrase-2', { autoAlpha:0, y:40 }, { autoAlpha:1, y:0, duration:1.4 }, 4.0)
+      .to('#phrase-2', { autoAlpha:0, y:-40, duration:1.4 }, 6.6)
+      .fromTo('#phrase-3', { autoAlpha:0, y:40 }, { autoAlpha:1, y:0, duration:1.4 }, 7.4);
+
+    /* CTA — embossed word parallax + magnetic button */
+    if (!reduced){
+      gsap.to('#subtract-word', { xPercent:-4, ease:'none',
+        scrollTrigger:{ trigger:'#cta', start:'top bottom', end:'bottom top', scrub:true } });
+    }
+    const btn = document.getElementById('begin-btn');
+    const zone = document.getElementById('begin-zone');
+    const xTo = gsap.quickTo(btn, 'x', { duration:0.5, ease:'power3' });
+    const yTo = gsap.quickTo(btn, 'y', { duration:0.5, ease:'power3' });
+    if (!reduced){
+      zone.addEventListener('pointermove', (e)=>{
+        const r = btn.getBoundingClientRect();
+        xTo((e.clientX - (r.left + r.width/2)) * 0.4);
+        yTo((e.clientY - (r.top + r.height/2)) * 0.4);
+      });
+      zone.addEventListener('pointerleave', ()=>{ xTo(0); yTo(0); });
+    }
+    btn.addEventListener('pointerdown', ()=> gsap.to(btn,{ scale:0.94, duration:0.1, ease:'power2.out' }));
+    const release = ()=> gsap.to(btn,{ scale:1, duration:0.6, ease:'elastic.out(1,0.45)' });
+    btn.addEventListener('pointerup', release);
+    btn.addEventListener('pointerleave', release);
+
+    ScrollTrigger.refresh();
+  });
+</script></div>
+  
+  
+</body></html>
